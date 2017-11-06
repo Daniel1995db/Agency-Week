@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :restaurants
+  devise_for :users
   resources :pick_ups
   resources :discounts
   resources :menu_items

@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       t.string :fname
       t.string :lname
-      t.attachment :photo
+      t.string :photo
       t.integer :status
 
       t.timestamps
