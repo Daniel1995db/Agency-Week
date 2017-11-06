@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @pick_up.status %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @pick_up.restaurant %>
+</p>
+
+<%= link_to 'Edit', edit_pick_up_path(@pick_up) %> |
+<%= link_to 'Back', pick_ups_path %>

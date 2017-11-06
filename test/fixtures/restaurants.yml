@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cname: MyString
+  address: MyString
+  number: 1
+  photo: 
+  menu: 
+  longitude: 1
+  langitude: 1
+
+two:
+  cname: MyString
+  address: MyString
+  number: 1
+  photo: 
+  menu: 
+  longitude: 1
+  langitude: 1
