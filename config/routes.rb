@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :restaurants
   devise_for :users
+
+  get 'restaurants/all' => 'restaurants#live_restaurants'
   resources :pick_ups
   resources :discounts
   resources :menu_items
