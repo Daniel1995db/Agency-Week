@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :favorite_restaurants
 	has_many :restaurants, through: :favorite_restaurants
+  	mount_uploader :image, ImageUploader
 end

@@ -25,6 +25,7 @@ class MenuItemsController < ApplicationController
   # POST /menu_items.json
   def create
     @menu_item = MenuItem.new(menu_item_params)
+    @menu_item.restaurant_id = current_restaurant.id if current_restaurant
 
     respond_to do |format|
       if @menu_item.save
@@ -69,6 +70,6 @@ class MenuItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_item_params
-      params.require(:menu_item).permit(:item, :price, :range, :category, :restaurant_id)
+      params.require(:menu_item).permit(:restaurant_id, items_attributes: [:id, :item_name, :description, :price, :starting_range, :ending_range])
     end
 end

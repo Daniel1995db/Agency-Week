@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20171106205205) do
     t.string "cname"
     t.string "address"
     t.integer "number"
-    t.string "photo"
+    t.string "image"
     t.integer "menu_item_id"
     t.float "longitude"
     t.float "langitude"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20171106205205) do
   create_table "users", force: :cascade do |t|
     t.string "fname"
     t.string "lname"
-    t.string "photo"
+    t.string "image"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
