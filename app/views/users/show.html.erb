@@ -15,6 +15,12 @@
   <%= @user.status %>
 </p>
 
+<p>
+  <strong>Favorite Restaurants:</strong>
+  <% @user.favorite_restaurants.each do |fr| %>
+  	<p><%= fr.restaurant.cname %></p>
+  <% end %>
+</p>
 
 <p><%= image_tag(@user.image) if @user.image? %></p>
 
