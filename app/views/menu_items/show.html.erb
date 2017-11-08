@@ -1,29 +1,13 @@
-<p id="notice"><%= notice %></p>
+<p><%= @menu_item.restaurant.cname %> Menu </p>
 
-<p>
-  <strong>Item:</strong>
-  <%= @menu_item.item %>
-</p>
+<% @menu_item.items.each do |item| %>
+	<p><%= item.item %></p>
+	<p>$<%= item.price %></p>
+	<p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
+	<p><%= item.description %></p>
+	<%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %> 
 
-<p>
-  <strong>Price:</strong>
-  <%= @menu_item.price %>
-</p>
-
-<p>
-  <strong>Range:</strong>
-  <%= @menu_item.range %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @menu_item.category %>
-</p>
-
-<p>
-  <strong>Restaurant:</strong>
-  <%= @menu_item.restaurant %>
-</p>
 
 <%= link_to 'Edit', edit_menu_item_path(@menu_item) %> |
 <%= link_to 'Back', menu_items_path %>
