@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20171107214458) do
   create_table "restaurants", force: :cascade do |t|
     t.string "cname"
     t.string "address"
-    t.integer "number"
+    t.string "number"
     t.string "image"
     t.integer "menu_item_id"
     t.float "longitude"
