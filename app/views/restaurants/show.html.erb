@@ -1,7 +1,4 @@
-<p>
-  <strong>Company Name:</strong>
-  <%= @restaurant.cname %>
-</p>
+<h1><%= @restaurant.cname %></h1>
 
 <p>
   <strong>Street Address:</strong>
@@ -14,6 +11,16 @@
 </p>
 
 <p><%= image_tag(@restaurant.image) if @restaurant.image? %></p>
+
+<h2>Menu</h2>
+<% @restaurant.menu_items.each do |menu| %>
+	<% menu.items.each do |item| %>
+		<p><strong><%= item.item %></strong></p>
+		<p>$<%= item.price %></p>
+		<p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
+		<p><%= item.description %></p>
+	<% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

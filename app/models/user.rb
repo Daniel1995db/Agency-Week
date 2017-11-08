@@ -6,4 +6,6 @@ class User < ApplicationRecord
 	has_many :favorite_restaurants, :dependent => :destroy
 	has_many :restaurants, through: :favorite_restaurants, :dependent => :destroy
   	mount_uploader :image, ImageUploader
+
+  	enum status: [:customer, :administrator]
 end
