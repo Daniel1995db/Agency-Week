@@ -32,8 +32,8 @@ Discount.create ([
 ])
 
 User.create ([
-	{fname: "Jaquelyn", lname: "Morris", status: 1, email: "jackie@gmail.com", password: "password"},
-	{fname: "Administrator", lname: "Access", status: 0, email: "admin@gmail.com", password: "password"}
+	{fname: "Jaquelyn", lname: "Morris", status: "customer", email: "jackie@gmail.com", password: "password"},
+	{fname: "Administrator", lname: "Access", status: "administrator", email: "admin@gmail.com", password: "password"}
 ])
 
 FavoriteRestaurant.create ([

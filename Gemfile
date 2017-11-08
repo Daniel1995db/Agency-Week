@@ -60,3 +60,5 @@ gem 'carrierwave', '~> 1.0'
 gem "nested_form"
 
 gem "jquery-rails"
+
+gem 'font-awesome-rails'
