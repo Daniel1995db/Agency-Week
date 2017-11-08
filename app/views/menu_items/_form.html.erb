@@ -1,42 +1,166 @@
-<%= form_with(model: menu_item, local: true) do |form| %>
-  <% if menu_item.errors.any? %>
+<%= nested_form_for(@menu_item) do |f| %>
+  <% if @menu_item.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(menu_item.errors.count, "error") %> prohibited this menu_item from being saved:</h2>
-
+      <h2><%= pluralize(@menu_item.errors.count, "error") %> prohibited this menu from being saved:</h2>
       <ul>
-      <% menu_item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @menu_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :item %>
-    <%= form.text_field :item, id: :menu_item_item %>
-  </div>
+<%= f.hidden_field :restaurant_id %>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :menu_item_price %>
-  </div>
 
-  <div class="field">
-    <%= form.label :range %>
-    <%= form.text_field :range, id: :menu_item_range %>
-  </div>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category, id: :menu_item_category %>
-  </div>
+<h3>Appetizers</h3>
 
-  <div class="field">
-    <%= form.label :restaurant_id %>
-    <%= form.text_field :restaurant_id, id: :menu_item_restaurant_id %>
-  </div>
+<%= f.fields_for :items, Item.new do |i| %>
+<div class="form-group">
+  <%= i.label :item %>
+  <%= i.text_field :item, :class=>"form-control", :placeholder => "Classic Wings" %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="form-group">
+  <%= i.label :description %>
+  <%= i.text_area :description, :class=>"form-control", :placeholder => "Tossed in your choice of sauce." %>
+</div>
+
+<div class="form-group">
+  <%= i.label :price %>
+  <%= i.text_field :price, :class=>"form-control", :placeholder => "$10" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :starting_range, "Discount Starting Range" %>
+  <%= i.text_field :starting_range, :class=>"form-control", :placeholder => "$5" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :ending_range, "Discount Ending Range" %>
+  <%= i.text_field :ending_range, :class=>"form-control", :placeholder => "$7" %>
+</div>
+
+<%= i.link_to_remove "Remove this item", :class=>"btn btn-default" %>
+
+<% end %>
+
+<p><%= f.link_to_add "Add an Item", :items, :class=>"btn btn-default" %></p>
+
+
+
+
+<h3>Main Dishes</h3>
+
+<%= f.fields_for :items, Item.new do |i| %>
+<div class="form-group">
+  <%= i.label :item %>
+  <%= i.text_field :item, :class=>"form-control", :placeholder => "Chicken Parmesan" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :description %>
+  <%= i.text_area :description, :class=>"form-control", :placeholder => "All-natural chicken served with cheddar mac and Cheese and a side of fresh tomato mozzarella salad." %>
+</div>
+
+<div class="form-group">
+  <%= i.label :price %>
+  <%= i.text_field :price, :class=>"form-control", :placeholder => "$15" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :starting_range, "Discount Starting Range" %>
+  <%= i.text_field :starting_range, :class=>"form-control", :placeholder => "$7" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :ending_range, "Discount Ending Range" %>
+  <%= i.text_field :ending_range, :class=>"form-control", :placeholder => "$10" %>
+</div>
+
+<%= i.link_to_remove "Remove this item", :class=>"btn btn-default" %>
+
+<% end %>
+
+<p><%= f.link_to_add "Add an Item", :items, :class=>"btn btn-default" %></p>
+
+
+
+
+<h3>Desserts</h3>
+
+<%= f.fields_for :items, Item.new do |i| %>
+<div class="form-group">
+  <%= i.label :item %>
+  <%= i.text_field :item, :class=>"form-control", :placeholder => "Tiramisu " %>
+</div>
+
+<div class="form-group">
+  <%= i.label :description %>
+  <%= i.text_area :description, :class=>"form-control", :placeholder => "The classic Italian dessert. A layer of creamy custard set atop espresso-soaked ladyfingers." %>
+</div>
+
+<div class="form-group">
+  <%= i.label :price %>
+  <%= i.text_field :price, :class=>"form-control", :placeholder => "$7" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :starting_range, "Discount Starting Range" %>
+  <%= i.text_field :starting_range, :class=>"form-control", :placeholder => "$4" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :ending_range, "Discount Ending Range" %>
+  <%= i.text_field :ending_range, :class=>"form-control", :placeholder => "$6" %>
+</div>
+
+<%= i.link_to_remove "Remove this item", :class=>"btn btn-default" %>
+
+<% end %>
+
+<p><%= f.link_to_add "Add an Item", :items, :class=>"btn btn-default" %></p>
+
+
+
+
+<h3>Drinks</h3>
+
+<%= f.fields_for :items, Item.new do |i| %>
+<div class="form-group">
+  <%= i.label :item %>
+  <%= i.text_field :item, :class=>"form-control", :placeholder => "Iced Coffee" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :description %>
+  <%= i.text_area :description, :class=>"form-control", :placeholder => "Sweetened and blended with milk. Choose vanilla, caramel or traditional." %>
+</div>
+
+<div class="form-group">
+  <%= i.label :price %>
+  <%= i.text_field :price, :class=>"form-control", :placeholder => "$3" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :starting_range, "Discount Starting Range" %>
+  <%= i.text_field :starting_range, :class=>"form-control", :placeholder => "$1" %>
+</div>
+
+<div class="form-group">
+  <%= i.label :ending_range, "Discount Ending Range" %>
+  <%= i.text_field :ending_range, :class=>"form-control", :placeholder => "$2" %>
+</div>
+
+<%= i.link_to_remove "Remove this item", :class=>"btn btn-default" %>
+
+<% end %>
+
+<p><%= f.link_to_add "Add an Item", :items, :class=>"btn btn-default" %></p>
+
+<div class="actions">
+  <%= f.submit 'Create Menu', :class=>"btn btn-default" %>
+</div>
+
 <% end %>

@@ -21,6 +21,28 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cname, "Company Name" %>
+    <%= f.text_field :cname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "Street Address" %>
+    <em>(ex: 123 Main Street, New York, NY 10001)</em><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number, "Phone Number" %>
+    <em>(ex: 555-555-1234)</em><br />
+    <%= f.text_field :number %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

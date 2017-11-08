@@ -4,7 +4,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.string :cname
       t.string :address
       t.integer :number
-      t.string :photo
+      t.string :image
       t.references :menu_item
       t.float :longitude
       t.float :langitude
