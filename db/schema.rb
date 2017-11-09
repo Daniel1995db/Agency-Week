@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20171107214458) do
     t.integer "starting_range"
     t.integer "ending_range"
     t.string "description"
+    t.integer "category"
     t.integer "menu_item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

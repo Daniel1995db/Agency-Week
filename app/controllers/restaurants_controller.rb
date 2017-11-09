@@ -1,10 +1,11 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_restaurant!
 
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    @restaurant = current_restaurant
   end
 
   # GET /restaurants/1
@@ -63,6 +64,11 @@ class RestaurantsController < ApplicationController
 
   def live_restaurants
     @restaurants = Restaurant.all
+  end
+
+  def choosingOption
+    # @pick_ups = pick_ups.all
+    # @discounts = discounts.all 
   end
 
   private
