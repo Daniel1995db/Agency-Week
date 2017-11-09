@@ -1,5 +1,6 @@
 class PickUpsController < ApplicationController
   before_action :set_pick_up, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /pick_ups
   # GET /pick_ups.json

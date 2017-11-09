@@ -9,4 +9,5 @@ class Restaurant < ApplicationRecord
 	has_many :favorite_restaurants, :dependent => :destroy
 	has_many :users, through: :favorite_restaurants, :dependent => :destroy
 	mount_uploader :image, ImageUploader
+
 end

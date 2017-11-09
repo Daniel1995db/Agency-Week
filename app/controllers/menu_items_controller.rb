@@ -1,10 +1,11 @@
 class MenuItemsController < ApplicationController
   before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /menu_items
   # GET /menu_items.json
   def index
-    @menu_items = MenuItem.all
+    @menu_items = current_restaurant.menu_items
+    
   end
 
   # GET /menu_items/1
