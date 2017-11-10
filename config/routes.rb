@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: "users/registrations" }
     
   get 'restaurants/all' => 'restaurants#live_restaurants'
-  get 'restaurants/option' => 'restaurants#choosingOption'
+  get 'restaurants/option' => 'restaurants#choosing_option'
   
   resources :pick_ups
   resources :discounts
