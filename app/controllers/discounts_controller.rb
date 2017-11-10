@@ -24,7 +24,7 @@ class DiscountsController < ApplicationController
   # POST /discounts
   # POST /discounts.json
   def create
-    @discount = Discount.new(discount_params)
+    
 
     respond_to do |format|
       if @discount.save

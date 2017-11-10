@@ -1,15 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Option</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
 <% if current_restaurant %>
 	<div class="choose_option_forms">
 		<h1>Closing soon? Have extra food? Just choose an option below, we'll take care of the rest.</h1>
 
 		<h3>Lower your prices here and watch that food go.</h3>
-			<form id="modal_for_going_live">
-				<button>Go Live</button>
+
+				      <div class="modal-body">
+								<form action="https://formspree.io/mjfloyd3@gmail.com"
+								      method="POST">
+								      <li>
+								      <label>Select Time Frame</label>
+								    <select name="Duration" class="field-select">
+								        <option value="30">30 minutes</option>
+								        <option value="45">45 minutes</option>
+								        <option value="60">60 minutes</option>
+								    </select>
+								    </li>
+								    <li>
+								    <label>Deal Details<span class="required">*</span></label>
+								    <textarea name="Today's Deal" id="field5" class="field-long field-textarea"></textarea>
+								    </li>
+								    <input type="submit" class="btn btn-primary" value="Launch Discount">
+								</form>
+				      </div>
+
+				    </div>
+				  </div>
+				</div>
+				</body>
+				</html>
 			</form>
 
 		<h3>Help Contribute in feeding the homeless. Request a pick up.</h3>
 			<form id="modal_for_requesting_pick_up">
-				<button>Pick Up</button>
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-target="#myPUModal" id="myPUBtn">
+				  Request Pick Up
+				</button>
+
+				<!-- Pick Up Modal -->
+				<div class="modal fade" id="myPUModal" tabindex="-1" role="dialog" aria-labelledby="myPUModal" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="myPUModal">Request Pick Up</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+								Request pick up and we will bring your unsold food items to a local food bank
+				      </div>
+				      <div class="modal-footer">
+
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				        <button type="button" class="btn btn-primary">Request Pick Up</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				</body>
+				</html>
 			</form>
 	</div>
 <% end %>
