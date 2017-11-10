@@ -4,13 +4,14 @@
 </div>
  -->
 
-<div id="locationField" >
+
+<!-- <div id="locationField" >
     <input id="autocomplete" class="address-submit" placeholder="Enter your address"
              value="New York, NY" type="text" style="width: 500px;"></input>
     <input id="address-submit-button" type="button" value="Geocode">
 </div>
-
-    <table id="address">
+ -->
+   <!--  <table id="<a href=""></a>ddress">
       <tr>
         <td class="label">Street address</td>
         <td class="slimField"><input class="field" id="street_number"
@@ -36,7 +37,7 @@
         <td class="wideField" colspan="3"><input class="field"
               id="country" disabled="true"></input></td>
       </tr>
-    </table>
+    </table> -->
 
 <div id="map"></div>
 
@@ -44,6 +45,12 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzDUyA7JETU9aaofrnQdoTqXCLEBrSywA&libraries=places" type="text/javascript">
 </script>
 <script type="text/javascript">
+
+
+// for (i = 0, len = Restaurant.length, i < len; i++) {
+//   console.log("%>")
+// }
+
 
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
@@ -59,13 +66,13 @@ function initMap() {
 		}
 	]
 	});
-	var marker = new google.maps.Marker({
-		position:{lat: 40.70894, lng: -74.01066},
-		map: map
-	});
-	var infoWindow = new google.maps.InfoWindow({
-		content: '<h3>New York, NY</h3>'
-	});
+	// var marker = new google.maps.Marker({
+	// 	position: {<%= Restaurant.first.address %>}
+	// 	map: map
+	// });
+	// var infoWindow = new google.maps.InfoWindow({
+	// 	content: {'<h3><%= Restaurant.first.cname %></h3> <h6><%= Restaurant.first.address %></h6>'}
+	// });
 	marker.addListener('click', function(){
 		infoWindow.open(map, marker);
 	});
