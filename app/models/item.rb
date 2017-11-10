@@ -3,3 +3,4 @@ class Item < ApplicationRecord
 
 	enum category: [:appetizers, :maindishes, :desserts, :drinks]
 end
+
