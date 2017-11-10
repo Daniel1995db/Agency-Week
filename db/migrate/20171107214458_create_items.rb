@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.integer :starting_range
       t.integer :ending_range
       t.string :description
+      t.integer :category
       t.references :menu_item, foreign_key: true
       t.timestamps
     end

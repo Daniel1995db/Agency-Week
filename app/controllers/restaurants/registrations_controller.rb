@@ -11,7 +11,7 @@ class Restaurants::RegistrationsController < Devise::RegistrationsController
   # def create
   #   super
   # end
-
+  
   # GET /resource/edit
   # def edit
   #   super

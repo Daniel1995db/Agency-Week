@@ -1,6 +1,34 @@
-<p><%= @menu_item.restaurant.cname %> Menu </p>
+<h1><%= @menu_item.restaurant.cname %> Menu </h1>
 
-<% @menu_item.items.each do |item| %>
+<h3>Appetizers</h3>
+<% @menu_item.items.appetizers.each do |item| %>
+	<p><%= item.item %></p>
+	<p>$<%= item.price %></p>
+	<p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
+	<p><%= item.description %></p>
+	<%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %> 
+
+<h3>Main Dishes</h3>
+<% @menu_item.items.maindishes.each do |item| %>
+	<p><%= item.item %></p>
+	<p>$<%= item.price %></p>
+	<p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
+	<p><%= item.description %></p>
+	<%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %> 
+
+<h3>Desserts</h3>
+<% @menu_item.items.desserts.each do |item| %>
+	<p><%= item.item %></p>
+	<p>$<%= item.price %></p>
+	<p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
+	<p><%= item.description %></p>
+	<%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %> 
+
+<h3>Drinks</h3>
+<% @menu_item.items.drinks.each do |item| %>
 	<p><%= item.item %></p>
 	<p>$<%= item.price %></p>
 	<p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
