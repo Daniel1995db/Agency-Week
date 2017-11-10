@@ -22,4 +22,17 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+def after_sign_in_path_for(resource_or_scope)
+  p stored_location_for(resource_or_scope)
+  p (resource_or_scope).status
+  if stored_location_for(resource_or_scope) == '/'
+    if (resource_or_scope).status == "administrator"
+        restaurants_path
+      else
+        restaurants_all_path
+    end
+  end
+end
+
 end

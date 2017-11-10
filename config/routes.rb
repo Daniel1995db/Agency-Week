@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resources :discounts
   resources :menu_items
   resources :favorite_restaurants
-  resources :restaurants
+  resources :restaurants do
+    member do
+      put "like" => "restaurants#vote"
+    end
+  end
   resources :users
 
   root 'home#index'

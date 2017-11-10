@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :vote]
+  respond_to :js, :json, :html
   before_action :authenticate_restaurant!
 
   # GET /restaurants
@@ -48,6 +49,22 @@ class RestaurantsController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def vote
+    if current_user
+      if !current_user.liked? @restaurant
+        FavoriteRestaurant.create ([
+          {user_id: current_user.id, restaurant_id: @restaurant.id}
+        ])
+        @restaurant.liked_by current_user
+      elsif current_user.liked? @restaurant
+        @rest = FavoriteRestaurant.where(:user_id => current_user.id, :restaurant_id => @restaurant.id)
+        p @rest
+        @rest.delete_all
+        @restaurant.unliked_by current_user
       end
     end
   end

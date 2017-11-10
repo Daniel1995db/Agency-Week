@@ -1,0 +1,16 @@
+<% if !current_user %>
+	$('#notice').html("You must be signed in to add a restaurant to your favorites list. <a href='/users/sign_in'>Click Here to Sign In</a>");
+<% end %>
+<% if current_user %>
+<% if current_user.liked? @restaurant %>
+	$('.fav-btn').addClass('liked');
+	$('#notice').html("Added to Favorites.");
+	$('.fav-btn').css("color", "#ffd700");
+	$('.favStatus').html("Remove from favorites");
+<% else %>
+	$('.fav-btn').removeClass('liked');
+	$('#notice').html("Removed from Favorites.");
+	$('.fav-btn').css("color", "black");
+	$('.favStatus').html("Add to favorites");
+<% end %>
+<% end %>
