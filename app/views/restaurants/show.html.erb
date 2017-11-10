@@ -35,6 +35,11 @@
 
 <script>
 
+<% if !current_user %>
+  $('.fav-btn').css("color", "black");
+  $('.favStatus').html("Add to favorites");
+<% end %>
+
 <% if current_user %>
 <% if FavoriteRestaurant.where(:user_id => current_user.id, :restaurant_id => @restaurant.id).exists? %>
   $('.fav-btn').css("color", "#ffd700");

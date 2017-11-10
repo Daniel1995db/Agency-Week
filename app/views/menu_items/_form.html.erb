@@ -17,7 +17,7 @@
 <h3>Appetizers</h3>
 
 <%= f.fields_for :items, Item.new do |i| %>
-<%= i.hidden_field :category 0 %>
+<%= i.hidden_field :category, :value => "appetizers" %>
 <div class="form-group">
   <%= i.label :item %>
   <%= i.text_field :item, :class=>"form-control", :placeholder => "Classic Wings" %>
@@ -55,7 +55,7 @@
 <h3>Main Dishes</h3>
 
 <%= f.fields_for :items, Item.new do |i| %>
-<%= i.hidden_field :category 1 %>
+<%= i.hidden_field :category, :value => "maindishes" %>
 <div class="form-group">
   <%= i.label :item %>
   <%= i.text_field :item, :class=>"form-control", :placeholder => "Chicken Parmesan" %>
@@ -93,7 +93,7 @@
 <h3>Desserts</h3>
 
 <%= f.fields_for :items, Item.new do |i| %>
-<%= i.hidden_field :category 2 %>
+<%= i.hidden_field :category, :value => "desserts" %>
 <div class="form-group">
   <%= i.label :item %>
   <%= i.text_field :item, :class=>"form-control", :placeholder => "Tiramisu " %>
@@ -131,7 +131,7 @@
 <h3>Drinks</h3>
 
 <%= f.fields_for :items, Item.new do |i| %>
-<%= i.hidden_field :category 3 %>
+<%= i.hidden_field :category, :value => "drinks" %>
 <div class="form-group">
   <%= i.label :item %>
   <%= i.text_field :item, :class=>"form-control", :placeholder => "Iced Coffee" %>
