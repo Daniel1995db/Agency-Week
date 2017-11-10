@@ -14,4 +14,19 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+
+
+$(document).ready(function(){
+    $("#myPUBtn").click(function(){
+        $("#myPUModal").modal();
+    });
+});
