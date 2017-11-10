@@ -36,10 +36,6 @@ User.create ([
 	{fname: "Administrator", lname: "Access", status: "administrator", email: "admin@gmail.com", password: "password"}
 ])
 
-FavoriteRestaurant.create ([
- {user_id: 1, restaurant_id: 1}
-])
-
 PickUp.create ([
 	{status: 0, restaurant_id: 1},
 	{status: 0, restaurant_id: 2}

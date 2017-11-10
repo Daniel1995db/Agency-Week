@@ -1,4 +1,8 @@
-<h1><%= @restaurant.cname %></h1>
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @restaurant.cname %>
+</h1>
 
 <p>
   <strong>Street Address:</strong>
@@ -8,6 +12,12 @@
 <p>
   <strong>Phone Number:</strong>
   <%= @restaurant.number %>
+</p>
+
+<p>
+  <%= link_to like_restaurant_path(@restaurant), class:"fav-btn", method: :put, remote: :true do %>
+  <i class='fa fa-star'></i><% end %>
+  <em><span class="favStatus"></span></em>
 </p>
 
 <p><%= image_tag(@restaurant.image) if @restaurant.image? %></p>
@@ -21,6 +31,26 @@
 		<p><%= item.description %></p>
 	<% end %>
 <% end %>
+
+
+<script>
+
+<% if current_user %>
+<% if FavoriteRestaurant.where(:user_id => current_user.id, :restaurant_id => @restaurant.id).exists? %>
+  $('.fav-btn').css("color", "#ffd700");
+  $('.favStatus').html("Remove from favorites");
+<% end %>
+<% end %>
+
+<% if current_user %>
+<% if !FavoriteRestaurant.where(:user_id => current_user.id, :restaurant_id => @restaurant.id).exists? %>
+  $('.fav-btn').css("color", "black");
+  $('.favStatus').html("Add to favorites");
+<% end %>
+<% end %>
+
+
+</script>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

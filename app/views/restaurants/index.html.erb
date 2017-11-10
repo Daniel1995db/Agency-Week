@@ -19,7 +19,7 @@
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
-        <td><%= link_to "<i class='fa fa-star-o'></i>".html_safe %><%= restaurant.cname %></td>
+        <td><%= restaurant.cname %></td>
         <td><%= restaurant.address %></td>
         <td><%= restaurant.number %></td>
         <td><%= restaurant.longitude %></td>

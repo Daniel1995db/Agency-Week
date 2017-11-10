@@ -62,3 +62,5 @@ gem "nested_form"
 gem "jquery-rails"
 
 gem 'font-awesome-rails'
+
+gem 'acts_as_votable'
