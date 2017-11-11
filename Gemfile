@@ -66,3 +66,5 @@ gem "jquery-rails"
 gem 'font-awesome-rails'
 
 gem 'acts_as_votable'
+
+gem 'geocoder'

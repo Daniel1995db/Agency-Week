@@ -7,7 +7,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.string :image
       t.references :menu_item
       t.float :longitude
-      t.float :langitude
+      t.float :latitude
 
       t.timestamps
     end
