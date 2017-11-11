@@ -18,7 +18,12 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzDUyA7JETU9aaofrnQdoTqXCLEBrSywA&libraries=places" type="text/javascript">
     </script>
 
-    <%= render partial: 'nav_bars/restaurantNav' %>
+    <% if restaurant_signed_in? %>
+      <%= render partial: 'nav_bars/restaurantNav' %>
+    <% elsif user_signed_in? %>
+      <%= render partial: 'nav_bars/usersNav' %>
+    <% end %>
+
     <%= yield %>
     
   </body>
