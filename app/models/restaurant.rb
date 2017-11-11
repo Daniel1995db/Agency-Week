@@ -11,4 +11,6 @@ class Restaurant < ApplicationRecord
 	has_many :users, through: :favorite_restaurants, :dependent => :destroy
 	mount_uploader :image, ImageUploader
 
+  geocoded_by :address
+  after_validation :geocode
 end

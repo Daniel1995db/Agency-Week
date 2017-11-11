@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20171109165558) do
     t.string "image"
     t.integer "menu_item_id"
     t.float "longitude"
-    t.float "langitude"
+    t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
