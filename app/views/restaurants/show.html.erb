@@ -1,20 +1,22 @@
+<div class="restaurantHome">
+
 <p id="notice"><%= notice %></p>
 
 <h1>
   <%= @restaurant.cname %>
 </h1>
 
-<p>
+<p class="restaurantInfo">
   <strong>Street Address:</strong>
   <%= @restaurant.address %>
 </p>
 
-<p>
+<p class="restaurantInfo">
   <strong>Phone Number:</strong>
   <%= @restaurant.number %>
 </p>
 
-<p>
+<p class="restaurantInfo">
   <%= link_to like_restaurant_path(@restaurant), class:"fav-btn", method: :put, remote: :true do %>
   <i class='fa fa-star'></i><% end %>
   <em><span class="favStatus"></span></em>
@@ -22,18 +24,112 @@
 
 <p><%= image_tag(@restaurant.image) if @restaurant.image? %></p>
 
-<h2>Menu</h2>
-<% @restaurant.menu_items.each do |menu| %>
-	<% menu.items.each do |item| %>
-		<p><strong><%= item.item %></strong></p>
-		<p>$<%= item.price %></p>
-		<p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
-		<p><%= item.description %></p>
-	<% end %>
-<% end %>
+</div><!--  end of restaurantHome -->
 
+<div class="restaurantHomeMenu">
+<h2><%= @restaurant.cname %> Menu</h2>
+
+<button class="apps">Appetizers</button>
+<button class="maindishes">Main Dishes</button>
+<button class="drinks">Drinks</button>
+<button class="desserts">Desserts</button>
+
+<div class="restaurantHomeMenuItems">
+<div class="menuItemAppetizers">
+<h3>Appetizers</h3>
+<% @restaurant.menu_items.each do |menu| %>
+  <% menu.items.appetizers.each do |item| %>
+    <p><strong><%= item.item %></strong> $<%= item.price %></p>
+    <p><%= item.description %></p>
+    <p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
+    <% if current_restaurant %>
+    <% if current_restaurant.id == @restaurant.id %>
+      <p><%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %><p>
+    <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+
+<div class="menuItemMainDishes">
+<h3>Main Dishes</h3>
+<% @restaurant.menu_items.each do |menu| %>
+  <% menu.items.maindishes.each do |item| %>
+    <p><strong><%= item.item %></strong> $<%= item.price %></p>
+    <p><%= item.description %></p>
+    <p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
+    <% if current_restaurant %>
+    <% if current_restaurant.id == @restaurant.id %>
+      <p><%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %><p>
+    <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+
+<div class="menuItemDesserts">
+<h3>Desserts</h3>
+<% @restaurant.menu_items.each do |menu| %>
+  <% menu.items.desserts.each do |item| %>
+    <p><strong><%= item.item %></strong> $<%= item.price %></p>
+    <p><%= item.description %></p>
+    <p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
+    <% if current_restaurant %>
+    <% if current_restaurant.id == @restaurant.id %>
+      <p><%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %><p>
+    <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+
+<div class="menuItemDrinks">
+<h3>Drinks</h3>
+<% @restaurant.menu_items.each do |menu| %>
+  <% menu.items.drinks.each do |item| %>
+    <p><strong><%= item.item %></strong> $<%= item.price %></p>
+    <p><%= item.description %></p>
+    <p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
+    <% if current_restaurant %>
+    <% if current_restaurant.id == @restaurant.id %>
+      <p><%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %><p>
+    <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+</div> <!-- end of restaurantHomeMenuItems -->
+</div> <!-- end of restaurantHomeMenu -->
 
 <script>
+
+document.querySelector(".apps").addEventListener("click", function () {
+  document.querySelector(".menuItemAppetizers").style.opacity = "1";
+  document.querySelector(".menuItemMainDishes").style.opacity = "0";
+  document.querySelector(".menuItemDrinks").style.opacity = "0";
+  document.querySelector(".menuItemDesserts").style.opacity = "0";
+})
+
+document.querySelector(".maindishes").addEventListener("click", function () {
+  document.querySelector(".menuItemMainDishes").style.opacity = "1";
+  document.querySelector(".menuItemAppetizers").style.opacity = "0";
+  document.querySelector(".menuItemDrinks").style.opacity = "0";
+  document.querySelector(".menuItemDesserts").style.opacity = "0";
+})
+
+document.querySelector(".drinks").addEventListener("click", function () {
+  document.querySelector(".menuItemDrinks").style.opacity = "1";
+  document.querySelector(".menuItemMainDishes").style.opacity = "0";
+  document.querySelector(".menuItemDesserts").style.opacity = "0";
+  document.querySelector(".menuItemAppetizers").style.opacity = "0";
+})
+
+document.querySelector(".desserts").addEventListener("click", function () {
+  document.querySelector(".menuItemDesserts").style.opacity = "1";
+  document.querySelector(".menuItemAppetizers").style.opacity = "0";
+  document.querySelector(".menuItemMainDishes").style.opacity = "0";
+  document.querySelector(".menuItemDrinks").style.opacity = "0";
+})
 
 <% if !current_user %>
   $('.fav-btn').css("color", "black");
@@ -56,6 +152,3 @@
 
 
 </script>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>

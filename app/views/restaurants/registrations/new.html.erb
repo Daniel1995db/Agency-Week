@@ -1,85 +1,78 @@
-<style type="text/css">
-  #address-signup-input{width: 500px;}
-  .address-submit{width: 500px;}
-</style>
+<div class="restaurantSignUpContain">
 
-<h2>Sign up</h2>
+<h1>Restaurant Sign Up</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="restaurantSignUpFormContain"><div class="restaurantSignUpForm"><%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :cname, "Company Name" %>
-    <%= f.text_field :cname %>
+    <p><%= f.text_field :cname, autofocus: true, placeholder: "Restaurant Name" %></p>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <p><%= f.email_field :email, placeholder: "Email Address" %></p>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <p><%= f.password_field :password, autocomplete: "off", placeholder: "Password" %></p>
+    <p><% if @minimum_password_length %>
+    <em class="restaurantNewMisc">(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %></p>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <p><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation" %></p>
   </div>
 
   <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :number, "Phone Number" %>
-    <%= f.text_field :number, placeholder: '(555) 555-1234' %>
+    <p><%= f.text_field :number, placeholder: "Phone Number" %></p>
   </div>
 
    <div class="field">
-    <%= f.label :address, "Street Address" %>
-    <%= f.text_field :address, placeholder: 'ex: 123 Main Street, New York, NY 10001', id: 'address-signup-input', id: 'autocomplete', class: 'address-submit' %>
+    <p><%= f.text_field :address, id: 'address-signup-input', id: 'autocomplete', class: 'address-submit', placeholder: "Street Address" %></p>
   </div>
+</div> <!-- end of restaurantSignUpForm -->
+</div><!-- restaurantSignUpFormContain -->
 
-  <table id="address">
-      <tr>
-        <td class="label">Street address</td>
+<div class="tableAddressContain">
+  <div id="address">
+      <p>
         <td class="slimField"><input class="field" id="street_number"
-              disabled="true"></input></td>
-        <td class="wideField" colspan="2"><input class="field" id="route"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">City</td>
+              disabled="true" placeholder="Street Number"></input></td>
+        </p>
+        <p>
+          <td class="wideField" colspan="2"><input class="field" id="route"
+              disabled="true" placeholder="Street Name"></input></td>
+      </p>
+      <p>
         <td class="wideField" colspan="3"><input class="field" id="locality"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">State</td>
+              disabled="true" placeholder="City"></input></td>
+      </p>
+      <p>
         <td class="slimField"><input class="field"
-              id="administrative_area_level_1" disabled="true"></input></td>
-        <td class="label">Zip code</td>
+              id="administrative_area_level_1" disabled="true" placeholder="State"></input></td>
+        </p>
+        <p>
         <td class="wideField"><input class="field" id="postal_code"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">Country</td>
+              disabled="true" placeholder="Zip Code"></input></td>
+      </p>
+      <p>
         <td class="wideField" colspan="3"><input class="field"
-              id="country" disabled="true"></input></td>
-      </tr>
-  </table>
+              id="country" disabled="true" placeholder="Country"></input></td>
+      </p>
+  </div>
+</div><!--  end of tableAddressContain -->
 
   <div class="actions">
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="restSignUp">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
-<%= render "restaurants/shared/links" %>
+</div> <!-- end of restaurantSignUpContain -->
 
 <script type="text/javascript">
   
@@ -124,13 +117,3 @@ function fillInAddress() {
 }
 
 </script>
-
-
-
-
-
-
-
-
-
-

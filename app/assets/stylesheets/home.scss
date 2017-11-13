@@ -2,17 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.homeImage {
-	width: 100%;
-	text-align: center;
+$gray: #72777C;
+$teal: #1BDD8F;
+$darker-green: #33825D;
+$blue: #267FA2;
+$white: #FFFFFF;
 
-	img {
+$big-font: "roboto";
+$medium-font: "sarala";
+$small-font: "source sans pro";
+
+.homeImage {
+	margin-top: 30px;
+	position: relative;
+	max-width: 100%;
+	min-width: 50%;
+	max-height: 100%;
+	min-height: 400px;
+	background: 
+    linear-gradient(
+      rgba(255, 255, 255, 0.6), 
+      rgba(255, 255, 255, 0.6)
+    ),
+    url("http://www.linnksprop.com/wp-content/uploads/EasyRotatorStorage/user-content/erc_31_1421226343/content/assets/banner%20NYC2(2).jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+
+	.homeText {
+		font-size: 10vw;
+		text-align: center;
+		z-index: 1;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
 		width: 100%;
-		height: 500px;
+		font-family: $big-font;
+		letter-spacing: 50px;
 	}
 }
 
 .home {
+	position: relative;
 	margin: 0;
 	padding: 0;
 
@@ -27,65 +58,257 @@
 	nav ul li a{
 		text-decoration: none;
 	}
+
+	hr {
+		border-width: 2px;
+		border-color: black;
+	}
 }
 
 .foodWasteGallery {
 	text-align: center;
+	margin-bottom: 5%;
+	padding-bottom: 5%;
+	margin-top: 100px;
 
 	.foodWasteContain {
 		display: inline-block;
 		position: relative;
-		height: 300px;
-    	width: 325px;
-    	padding: 1%;
+		height: 175px;
+    	width: 235px;
+    	margin: 0.5%;
 	}
 
 	.foodWasteFact {
 		position: absolute;
-		top: 50%;
+		top: 63%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
-		width: 325px;
-    	height: 300px;
+		width: 70%;
+    	height: 175px;
+    	color: white;
+    	font-family: $small-font;
+    	font-size: 18px;
+    	font-style: italic;
+
 	}
 
-	.foodWasteImage img {
+	.foodWasteFact1 {
 		position: absolute;
-		height: 300px;
-    	width: 325px;
+		top: 80%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		width: 70%;
+    	height: 175px;
+    	color: white;
+    	font-family: $small-font;
+    	font-size: 18px;
+    	font-style: italic;
+	}
+
+	.foodWasteImage {
+		position: absolute;
+		height: 175px;
+    	width: 235px;
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
+		background-color: $blue;
+	}
+	.foodWasteImage2 {
+		position: absolute;
+		height: 175px;
+    	width: 235px;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		background-color: $teal;
+	}
+	.foodWasteImage3 {
+		position: absolute;
+		height: 175px;
+    	width: 235px;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		background-color: $gray;
+	}
+	.foodWasteImage4 {
+		position: absolute;
+		height: 175px;
+    	width: 235px;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		background-color: $darker-green;
 	}
 }
 
 .homeDescriptionContain {
 	width: 100%;
 	text-align: center;
+
+	.homeDescription {
+		width: 50%;
+  		margin: 0 auto;
+  		margin-bottom: 7%;
+  		margin-top: 7%;
+
+  		h1 {
+  			margin-bottom: 5%;
+  			font-family: $big-font;
+  			color: $blue;
+  			letter-spacing: 15px;
+  		}
+
+  		p {
+  			font-family: $small-font;
+  			font-size: 18px;
+  			letter-spacing: 1.2px;
+  			line-height: 20px;
+  		}
+	}
 }
 
 .homeDiagramContain {
 	width: 100%;
 	text-align: center;
+	margin-bottom: 100px;
+
+		h2 {
+			font-family: $big-font;
+			color: $blue;
+			letter-spacing: 15px;
+			margin-bottom: 3%;
+		}
 
 	.homeDiagram {
-		width: 125px;
+
+		i {
+			font-size: 35px;
+			padding-bottom: 5%; 
+		}
+
+		width: 150px;
 		display: inline-block;
+		vertical-align: middle;
+	}
+
+	p {
+		font-family: $small-font;
+		font-size: 16px;
 	}
 }
 
 .homeTotalContain {
 	width: 100%;
 	text-align: center;
+	margin-bottom: 10%;
+	height: 100px;
 
-	.HDC {
-		width: 100%;
-		text-align: center;
-	}
-
-	.homeTotal {
+	.homeTotal,
+	.homeTotal2 {
 		text-align: center;
 		width: 50%;
 		float: left;
+	}
+
+	.homeTotal {
+		border-right: solid;
+	}
+}
+
+.circle {
+    width: 150px; 
+    height: 150px;  
+    background-color: $blue; 
+    color: white; 
+    font-size: 70px; 
+    border-radius: 100%; 
+    display: table-cell; 
+    text-align: center; 
+    vertical-align: middle; 
+  }
+
+  .circleContain {
+  	width: 20%;
+  	margin: 0 auto;
+  	text-align: center;
+  }
+
+  .homeFooter {
+	position: absolute;
+	bottom: 0;
+	height: 5px;
+	width: 100%;
+	text-align: center;
+}
+
+
+@media (max-width: 800px) {
+	.homeImage {
+		min-height: 300px;
+	}
+}
+
+@media (max-width: 550px) {
+	.homeImage {
+		min-height: 130px;
+	}
+
+	.homeImage .homeText {
+		font-size: 9vw;
+		letter-spacing: 15px;
+	}
+
+	.homeDescriptionContain .homeDescription h1,
+	.homeDiagramContain h2 {
+		font-size: 8vw;
+		letter-spacing: 5px;
+	}
+
+	.homeDiagramContain h2 {
+		padding: 12%;
+	}
+
+	.homeDiagramContain, {
+		padding: 0% 10% 10% 10%;
+	}
+
+	.homeTotalContain {
+		padding: 0% 12%;
+		height: 100px;
+	}
+
+	.homeTotal h3,
+	.homeTotal2 h3 {
+		font-size: 16px;
+	}
+
+	.homeDescriptionContain .homeDescription {
+		width: 75%;
+	}
+
+	.homeDescriptionContain .homeDescription p {
+		font-size: 14px;
+		letter-spacing: 0px;
+	}
+
+	.foodWasteGallery {
+		margin-top: 50px;
+	}
+
+	.foodWasteImage,
+	.foodWasteImage2,
+	.foodWasteImage3,
+	.foodWasteImage4 {
+		width: 225px;
+	}
+
+	.circle {
+    	width: 50px; 
+    	height: 30px;
+    	font-size: 20px; 
+    	border-radius: 5%;
 	}
 }
