@@ -1,10 +1,35 @@
-<%= simple_form_for(@item) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
+<%= form_with(model: @item, local: true) do |form| %>
+  
+  <% if @item.menu_item %>
+    <%= form.hidden_field :menu_item_id, :value => @item.menu_item.id %>	
+  <% end %>
+  
+  <div class="field">
+    <%= form.label :item %>
+    <%= form.text_field :item %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :starting_range %>
+    <%= form.text_field :starting_range %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ending_range %>
+    <%= form.text_field :ending_range %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
   </div>
 <% end %>

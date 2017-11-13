@@ -33,6 +33,12 @@ $small-font: "source sans pro";
 
 	h1 {
 		font-size: 3vw;
+		color: $darker-green;
+	}
+
+	.restaurantInfo a,
+	.restaurantInfo i {
+		margin-top: 1%;
 	}
 
 	.restaurantInfo,

@@ -34,8 +34,4 @@
 	<p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
 	<p><%= item.description %></p>
 	<%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %> 
-
-
-<%= link_to 'Edit', edit_menu_item_path(@menu_item) %> |
-<%= link_to 'Back', menu_items_path %>
+<% end %>

@@ -1,13 +1,19 @@
-<nav>
-	<ul>
-		<li><%= link_to "Restaurant Login", new_restaurant_session_path %></li>
-		<li><%= link_to "User Login", new_user_session_path %></li>
-		<li><%= link_to "Restaurant Sign Up", new_restaurant_registration_path %></li>
-		<li><%= link_to "User Sign Up", new_user_registration_path %></li>
-		<li><%= link_to "Restaurant Logout",destroy_restaurant_session_path, method: :delete %></li>
-		<li><%= link_to "User Logout", destroy_user_session_path, method: :delete %></li>
-	</ul>
-</nav>
+<div class="landingoptions">
+	<button class="landingButtonRestaurant">For Restaurants</button>
+	<button class="landingButtonCustomer">For Customers</button>
+</div>
+
+<div class="landingoptionsRestaurant">
+	<li class="restaurantlanding"><%= link_to "Restaurant Login", new_restaurant_session_path %></li>
+	<li class="restaurantlanding"><%= link_to "Restaurant Sign Up", new_restaurant_registration_path %></li>
+<!-- 	<li><%= link_to "Restaurant Logout",destroy_restaurant_session_path, method: :delete %></li> -->
+</div>
+
+<div class="landingoptionsCustomer">
+	<li class="userlanding"><%= link_to "User Login", new_user_session_path %></li>
+	<li class="userlanding"><%= link_to "User Sign Up", new_user_registration_path %></li>
+<!-- 	<li><%= link_to "User Logout", destroy_user_session_path, method: :delete %></li> -->
+</div>
 
 <div class="homeImage">
 	<div class="homeText">PLENTY</div>
@@ -124,4 +130,16 @@ var stats_counter = function() {
   }
 }
 stats_counter();
+
+
+document.querySelector(".landingButtonRestaurant").addEventListener("click", function() {
+	document.querySelector(".landingoptionsRestaurant").style.display = "block";
+	document.querySelector(".landingoptionsCustomer").style.display = "none";
+})
+
+document.querySelector(".landingButtonCustomer").addEventListener("click", function() {
+	document.querySelector(".landingoptionsRestaurant").style.display = "none";
+	document.querySelector(".landingoptionsCustomer").style.display = "block";
+})
+
 </script>

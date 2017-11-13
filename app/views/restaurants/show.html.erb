@@ -7,13 +7,11 @@
 </h1>
 
 <p class="restaurantInfo">
-  <strong>Street Address:</strong>
-  <%= @restaurant.address %>
+  <span class="fa fa-map-marker" aria-hidden="true"></span> <%= @restaurant.address %>
 </p>
 
 <p class="restaurantInfo">
-  <strong>Phone Number:</strong>
-  <%= @restaurant.number %>
+  <span class="fa fa-phone" aria-hidden="true"></span> <%= @restaurant.number %>
 </p>
 
 <p class="restaurantInfo">
@@ -28,6 +26,12 @@
 
 <div class="restaurantHomeMenu">
 <h2><%= @restaurant.cname %> Menu</h2>
+<div class="restaurantShowNav"><% if current_restaurant %>
+  <% if current_restaurant.id == @restaurant.id %>
+    <p><%= link_to 'Add Menu Item(s)', edit_menu_item_path(@restaurant.menu_items.ids) %></p>
+    <p><%= link_to 'Delete My Account', @restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
+<% end %>
 
 <button class="apps">Appetizers</button>
 <button class="maindishes">Main Dishes</button>
@@ -44,7 +48,8 @@
     <p>Price During Discount Time: $<%= item.starting_range %>-<%= item.ending_range %></p>
     <% if current_restaurant %>
     <% if current_restaurant.id == @restaurant.id %>
-      <p><%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %><p>
+      <p><%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p><%= link_to 'Edit Item', edit_item_path(item) %></p>
     <% end %>
     <% end %>
   <% end %>
@@ -61,6 +66,7 @@
     <% if current_restaurant %>
     <% if current_restaurant.id == @restaurant.id %>
       <p><%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %><p>
+      <p><%= link_to 'Edit Item', edit_item_path(item) %></p>
     <% end %>
     <% end %>
   <% end %>
@@ -77,6 +83,7 @@
     <% if current_restaurant %>
     <% if current_restaurant.id == @restaurant.id %>
       <p><%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %><p>
+      <p><%= link_to 'Edit Item', edit_item_path(item) %></p>
     <% end %>
     <% end %>
   <% end %>
@@ -93,6 +100,7 @@
     <% if current_restaurant %>
     <% if current_restaurant.id == @restaurant.id %>
       <p><%= link_to 'Delete Item', item, method: :delete, data: { confirm: 'Are you sure?' } %><p>
+      <p><%= link_to 'Edit Item', edit_item_path(item) %></p>
     <% end %>
     <% end %>
   <% end %>

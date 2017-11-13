@@ -1,3 +1,20 @@
 // Place all the styles related to the menu_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.menuItemEditHeader {
+	width: 100%;
+	text-align: center;
+}
+
+.menuItemEditCategory {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+.appContain,
+.maindishesContain,
+.dessertsContain,
+.drinksContain {
+	margin-bottom: 8%;
+}

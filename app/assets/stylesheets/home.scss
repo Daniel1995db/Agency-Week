@@ -47,16 +47,44 @@ $small-font: "source sans pro";
 	margin: 0;
 	padding: 0;
 
-	nav ul {
-		float: right;
+	li {
+		list-style-type: none;
 	}
 
-	nav ul li {
-		display: inline-block;
+	.landingoptions,
+	.landingoptionsRestaurant,
+	.landingoptionsCustomer {
+		width: 100%;
+		text-align: center;
 	}
 
-	nav ul li a{
-		text-decoration: none;
+	.landingoptionsRestaurant,
+	.landingoptionsCustomer {
+		display: none;
+
+		li {
+			font-family: $small-font;
+			font-size: 20px;
+			line-height: 25px;
+		}
+	}
+
+	.landingoptions {
+		margin-bottom: 2%;
+
+		button {
+			background-color: $blue;
+			color: white;
+			border: none;
+			padding: 10px 15px;
+			font-size: 20px;
+			font-family: $small-font;
+		}
+
+		button:hover {
+			background-color: $gray;
+			font-size: 24px;
+		}
 	}
 
 	hr {
@@ -310,5 +338,14 @@ $small-font: "source sans pro";
     	height: 30px;
     	font-size: 20px; 
     	border-radius: 5%;
+	}
+
+	.home .landingoptions {
+		margin-bottom: 5%;
+
+		button {
+			width: 200px;
+			margin-bottom: 2px;
+		}
 	}
 }
