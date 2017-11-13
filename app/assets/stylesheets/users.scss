@@ -1,3 +1,343 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$gray: #72777C;
+$teal: #1BDD8F;
+$darker-green: #33825D;
+$blue: #267FA2;
+$white: #FFFFFF;
+
+$big-font: "roboto";
+$medium-font: "sarala";
+$small-font: "source sans pro";
+
+h2 {
+  font-family: $medium-font;
+  margin-bottom: 25px;
+  color: $darker-green;
+  font-size: 3vw;
+}
+
+h3 {
+  font-family: $medium-font;
+  margin-top: 2px;
+  color: $white;
+  font-size: 2.5vw;
+}
+
+p {
+  font-family: $small-font;
+  color: $white;
+  font-size: 2vw;
+}
+
+body {
+  margin: 0;
+}
+
+
+input {
+  color: black;
+}
+
+a.sharedlinks {
+  font-family: $small-font;
+  color: $teal;
+}
+
+#forgetpwform {
+  margin-top: 18px;
+  background-color: $gray;
+  width: 30%;
+  margin: auto;
+}
+
+.pwreset {
+  color: $blue;
+  font-family: $small-font;
+  font-size: 25px;
+  border-style: solid;
+  border-color: $white;
+  padding: 10px 15px 10px 15px;
+  background-color: $white;
+  margin-top: 5px;
+  margin-bottom: 35px;
+  }
+
+  .acctsettings {
+    color: #fff;
+    border-style: solid;
+    background-color: $teal;
+    border-color: $teal;
+    text-align: center;
+    font-family: $small-font;
+    font-size: 1.5vw;
+    padding: 10px 15px 10px 15px;
+    margin: auto;
+
+  }
+    .acctsettings:hover {
+      background-color: $blue;
+      border-color: $blue;
+      text-decoration: none;
+  }
+
+
+#signinform {
+  background-color: $gray;
+  width: 50%;
+  margin: auto;
+  height: 370px;
+  font-family: $small-font;
+  font-size: 20px;
+  color: #fff;
+}
+
+.signinbutton {
+  color: $teal;
+  font-family: $small-font;
+  font-size: 25px;
+  border-style: solid;
+  border-color: $white;
+  padding: 10px 15px 10px 15px;
+  background-color: $white;
+  margin-top: 5px;
+  margin-bottom: 35px;
+}
+
+.signinbutton:hover {
+  background-color: $teal;
+  color: $white;
+  border-color: $teal;
+
+}
+
+.fieldremember {
+  display: inline-flex;
+  margin-left: 30px;
+}
+
+#sharedlinks {
+  display: inline-block;
+  padding: 5px;
+  color: $darker-green;
+}
+
+#usersignup {
+  background-color: $gray;
+  width: 50%;
+  margin: auto;
+  height: 650px;
+  font-family: $small-font;
+  font-size: 20px;
+  color: black;
+}
+
+.signupbutton {
+  color: $blue;
+  font-family: $small-font;
+  font-size: 25px;
+  border-style: solid;
+  border-color: $white;
+  padding: 10px 15px 10px 15px;
+  background-color: $white;
+  margin-top: 5px;
+  margin-bottom: 35px;
+}
+
+.signupbutton:hover {
+  background-color: $blue;
+  color: $white;
+  border-color: $blue;
+}
+
+#UserInfo  {
+  background-color: $gray;
+  width: 40%;
+  margin-left: 85px;
+  margin-bottom: 10px;
+  float: left;
+  height: 220px;
+  p {
+    font-size: 20px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+#editprofilelink {
+ margin: auto;
+ margin-top: 50px;
+ margin-bottom: 10px;
+ a {
+   color: $darker-green;
+   font-family: $small-font;
+   font-size: 20px;
+   border-style: solid;
+   border-color: $white;
+   padding: 2px 5px 2px 5px;
+   background-color: $white;
+ }
+ a:hover {
+   background-color: $darker-green;
+   border-color: $darker-green;
+   color: $white;
+   text-decoration: none;
+ }
+}
+
+#UserFavs {
+  width: 40%;
+  float: right;
+  background-color: $blue;
+  margin-right: 85px;
+  height: 220px;
+  overflow: auto;
+
+}
+
+#usereditform {
+  padding-top: 10px;
+  background-color: $gray;
+  width: 50%;
+  margin: auto;
+  height: 440px;
+  font-family: $small-font;
+  font-size: 20px;
+}
+
+#editusersettings {
+  padding-top: 10px;
+  background-color: $gray;
+  width: 50%;
+  margin: auto;
+  font-family: $small-font;
+  font-size: 18px;
+  height: 470px;
+  position: relative;
+}
+
+#cancel {
+  color: tomato;
+  width: 50%;
+  margin: auto;
+  background: $blue;
+}
+
+.cancelbutton {
+  color: tomato;
+  font-family: $small-font;
+  font-size: 20px;
+  border-style: solid;
+  border-color: $white;
+  padding: 5px 10px 5px 10px;
+  background-color: $white;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+  .cancelbutton:hover {
+    color: $white;
+    background-color: tomato;
+    border-color: tomato;
+}
+div.field {
+    margin: 10px 10px 5px 20px;
+    color: $white;
+    padding: 10px;
+  }
+
+  .text_field {
+    color: $blue;
+  }
+
+.submit_button, .updatebutton {
+  color: $darker-green;
+  font-family: $small-font;
+  font-size: 20px;
+  border-style: solid;
+  border-color: $white;
+  padding: 5px 10px 5px 10px;
+  background-color: $white;
+  margin-top: 25px;
+}
+  .submit_button:hover, .updatebutton:hover {
+  background-color: $darker-green;
+  border-color: $darker-green;
+  color: $white;
+}
+
+.socialmedia {
+      position: fixed;
+      left: -5px;
+      bottom: 0;
+      width: 100%;
+      color: black;
+      text-align: right;
+:hover {
+  opacity: 0.5;
+}
+}
+
+i {
+  font-size: 12px;
+  color: $teal;
+}
+
+img {
+  width: 40px;
+}
+
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+  #UserInfo {
+    margin: 0;
+    width: 100%;
+  }
+
+  #UserFavs {
+    width: 100%;
+    margin: 0;
+  }
+
+  form {
+    margin: 0;
+    width: 100%;
+  }
+
+  #usereditform {
+    width: 100%;
+    margin: 0;
+  }
+    #usereditform > div.field {
+      width: 50%;
+}
+
+  div#editusersettings {
+    position: relative;
+    margin: auto;
+    width: 100%;
+  }
+
+  div#cancel {
+    width: 100%;
+    margin: auto;
+  }
+  body {
+    margin: 0;
+  }
+
+  div.field {
+    margin-left: 1px;
+  }
+
+  a {
+    margin: auto;
+    text-align: center;
+    font-family: $small-font;
+    color: $blue;
+  }
+
+}
