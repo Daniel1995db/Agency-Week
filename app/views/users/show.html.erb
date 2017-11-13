@@ -1,7 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First Name:</strong>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Sarala');
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto|Sarala');
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+</style>
+
+<center><h2>User Information</h2></center>
+<div id="UserInfo">
+
+<p><%= image_tag(@user.image) if @user.image? %></p>
+<p>  <strong>First Name:</strong>
   <%= @user.fname %>
 </p>
 
@@ -15,14 +28,22 @@
   <%= @user.status %>
 </p>
 
+<div id="editprofilelink">
+<center><%= link_to 'Edit Info', edit_user_path(@user) %></center>
+</div>
+</div>
+<div id="UserFavs">
 <p>
-  <strong>Favorite Restaurants:</strong>
+  <h3><center>Favorite Restaurants</center></h3>
   <% @user.favorite_restaurants.each do |fr| %>
   	<p><%= fr.restaurant.cname %></p>
   <% end %>
 </p>
+</div>
+<br>
 
-<p><%= image_tag(@user.image) if @user.image? %></p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="socialmedia">
+<%= link_to(image_tag("socialmedia/fb.svg"), root_path, class: "styleimg") %>
+<%= link_to(image_tag("socialmedia/twitter.svg"), root_path, class: "styleimg") %>
+<%= link_to(image_tag("socialmedia/insta.svg"), root_path, class: "styleimg") %>
+</div>

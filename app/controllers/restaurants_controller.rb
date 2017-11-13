@@ -85,8 +85,9 @@ class RestaurantsController < ApplicationController
 
   def choosing_option
     @pick_ups = PickUp.all
-    @discounts = Discount.all 
+    @discounts = Discount.all
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

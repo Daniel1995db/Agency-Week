@@ -1,24 +1,24 @@
-# README
+# NYCDA Agency Week - PLENTY
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+PLENTY aims to address the growing problem of food waste produced by restaurants.
+According to some studies, 84% of unused food at American restaurants ends up being disposed of.
 
-Things you may want to cover:
+With the PLENTY app/website, customers can access member restaurants daily discounts based on their supply as their closing hours approach. Restaurants also have the option to donate their unsold food items to local charities via pickups made by the team at PLENTY.
 
-* Ruby version
+## Project Set Up
 
-* System dependencies
+This project has two interfaces: one for customers and one for restaurants. The customer interface allows the user to access which restaurants are on discount via the Google Maps API. Users can create an account and develop a list of their favorite restaurants. The restaurant interface allows the restaurant to add their menu's to the website, display which items are on discount, for a set amount of time. They can also send out a request for pickup if they wish to donate their unsold food items.
 
-* Configuration
+## Gems and Features
 
-* Database creation
+-devise
 
-* Database initialization
+-carrierwave
 
-* How to run the test suite
+-acts_as_votable
 
-* Services (job queues, cache servers, search engines, etc.)
+-nested_form
 
-* Deployment instructions
+-Google Maps APIs
 
-* ...
+-formspree
