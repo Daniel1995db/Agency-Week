@@ -41,12 +41,11 @@
 <div class="live-restaurants-container">
   <div id="map"></div>
   <div class="live-discount-restaurants-col">
-    <h1 class="restaurants-list-heading">Restaurants currently discounting</h1>
-    <% @discounts.each do |discount| %>
+    <h1 class="restaurants-list-heading">All Restaurants</h1>
+    <% @restaurants.each do |restaurant| %>
       <div class="live-discount-restaurants-list">
-        <h3 class="restaurant-name-in-list"><%= discount.restaurant.cname %></h3>
-        <h5 class="restaurant-address-in-list"><%= discount.restaurant.address %></h5>
-        <h5 class="discount-description-in-list"><%= discount.description %></h5>
+        <h3 class="restaurant-name-in-list"><%= restaurant.cname %></h3>
+        <h5 class="restaurant-address-in-list"><%= restaurant.address %></h5>
       </div>
     <% end %>
   </div>
@@ -75,10 +74,10 @@ function initMap() {
   var infoWindow = new google.maps.InfoWindow
 
   var restaurants = [
-    <% @discounts.each do |discount| %>
+    <% @restaurants.each do |restaurant| %>
       {
-        coords:{lat:<%= discount.restaurant.latitude %>,lng:<%= discount.restaurant.longitude %>},
-        content: '<h3><%= discount.restaurant.cname %></h3> <h6><%= discount.restaurant.address %></h6>'
+        coords:{lat:<%= restaurant.latitude %>,lng:<%= restaurant.longitude %>},
+        content: '<h3><%= restaurant.cname %></h3> <h6><%= restaurant.address %></h6>'
       },
     <% end %>
   ]

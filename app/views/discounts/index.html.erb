@@ -17,7 +17,7 @@
       <tr>
         <td><%= discount.time_frame %></td>
         <td><%= discount.description %></td>
-        <td><%= discount.restaurant %></td>
+        <td><%= discount.restaurant.cname %></td>
         <td><%= link_to 'Show', discount %></td>
         <td><%= link_to 'Edit', edit_discount_path(discount) %></td>
         <td><%= link_to 'Destroy', discount, method: :delete, data: { confirm: 'Are you sure?' } %></td>

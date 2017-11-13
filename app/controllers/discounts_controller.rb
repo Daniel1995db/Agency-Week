@@ -4,7 +4,7 @@ class DiscountsController < ApplicationController
   # GET /discounts
   # GET /discounts.json
   def index
-    @discounts = Discount.all
+    @discounts = Discount.live
   end
 
   # GET /discounts/1
@@ -28,7 +28,7 @@ class DiscountsController < ApplicationController
     @discount.restaurant = current_restaurant
 
     respond_to do |format|
-      if @discount.save
+      if @discount.save!
         format.html { redirect_to @discount, notice: 'Discount was successfully created.' }
         format.json { render :show, status: :created, location: @discount }
       else
@@ -70,6 +70,6 @@ class DiscountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def discount_params
-      params.require(:discount).permit(:time_frame, :description, :restaurant_id)
+      params.require(:discount).permit(:time_frame, :description, :restaurant_id, :ended_at)
     end
 end

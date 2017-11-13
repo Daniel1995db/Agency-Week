@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     
   get 'restaurants/all' => 'restaurants#live_restaurants'
   get 'restaurants/option' => 'restaurants#choosing_option'
+  get 'all/restaurants' => 'restaurants#all_restaurants'
   
   resources :pick_ups
   resources :discounts
