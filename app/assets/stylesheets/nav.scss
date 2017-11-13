@@ -8,10 +8,7 @@ $big-font: "roboto";
 $medium-font: "sarala";
 $small-font: "source sans pro";
 
-// Reference it like this
-// .brian-regan {
-//  font-family: $big-font;
-// }
+// -------------------------------
 
 #nav-icon3 {
   margin: 0px;
@@ -97,7 +94,7 @@ $small-font: "source sans pro";
   }
 .nav-bar-options{
     background-color: $gray;
-    opacity: 0.75;
+    opacity: 0.95;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -109,10 +106,11 @@ $small-font: "source sans pro";
     transition: transform 0.6s ease;
 
     li {
-      padding: 6%;
+      padding: 10%;
       list-style: none;
       flex-direction: column;
       font-size: 300%;
+      opacity: 1;
     }
     li a:hover{
       color: $teal;
@@ -124,3 +122,32 @@ $small-font: "source sans pro";
       text-decoration: none;
     }
   }
+
+@media (max-width: 500px) {
+  .nav-bar-options{
+    padding-top: 10%;
+    opacity: 0.99;
+    li{
+      padding: 13%;
+    }
+  }
+}
+@media (min-width: 800px) {
+  .nav-bar-options{
+    li{
+      padding: 6%;
+    }
+  }
+}
+
+@media (max-width: 405px) {
+  .nav-bar-options{
+    li{
+      font-size: 220%;
+    }
+  }
+}
+
+
+
+

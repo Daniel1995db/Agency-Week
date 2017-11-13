@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :vote]
   respond_to :js, :json, :html
-  before_action :authenticate_restaurant!, except: [:live_restaurants]
+  before_action :authenticate_restaurant!, except: [:live_restaurants, :all_restaurants]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -82,7 +82,9 @@ class RestaurantsController < ApplicationController
   def live_restaurants
     @restaurants = Restaurant.all
     @discounts = Discount.live
-    
+  end
+  def all_restaurants
+    @restaurants = Restaurant.all
   end
 
   def choosing_option

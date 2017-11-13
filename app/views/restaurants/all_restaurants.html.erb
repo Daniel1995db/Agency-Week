@@ -1,0 +1,236 @@
+<!-- <div id="address-panel">
+    <input id="address-submit" type="textbox" value="New York, NY">
+    
+</div>
+ -->
+
+<!-- 
+<div id="locationField" >
+    <input id="autocomplete" class="address-submit" placeholder="Enter your address"
+             value="New York, NY" type="text" style="width: 500px;"></input>
+    <input id="address-submit-button" type="button" value="Geocode">
+</div> -->
+
+   <!--  <table id="<a href=""></a>ddress">
+      <tr>
+        <td class="label">Street address</td>
+        <td class="slimField"><input class="field" id="street_number"
+              disabled="true"></input></td>
+        <td class="wideField" colspan="2"><input class="field" id="route"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">City</td>
+        <td class="wideField" colspan="3"><input class="field" id="locality"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">State</td>
+        <td class="slimField"><input class="field"
+              id="administrative_area_level_1" disabled="true"></input></td>
+        <td class="label">Zip code</td>
+        <td class="wideField"><input class="field" id="postal_code"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">Country</td>
+        <td class="wideField" colspan="3"><input class="field"
+              id="country" disabled="true"></input></td>
+      </tr>
+    </table> -->
+<div class="live-restaurants-container">
+  <div id="map"></div>
+  <div class="live-discount-restaurants-col">
+    <h1 class="restaurants-list-heading">All Restaurants</h1>
+    <% @restaurants.each do |restaurant| %>
+      <div class="live-discount-restaurants-list">
+        <h3 class="restaurant-name-in-list"><%= restaurant.cname %></h3>
+        <h5 class="restaurant-address-in-list"><%= restaurant.address %></h5>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzDUyA7JETU9aaofrnQdoTqXCLEBrSywA&libraries=places" type="text/javascript">
+</script>
+<script type="text/javascript">
+
+var infoWindow, map;
+function initMap() {
+	map = new google.maps.Map(document.getElementById('map'), {
+	  center: {lat: 40.714623, lng: -74.006605},
+	  zoom: 14,
+	  styles: [
+	  	{
+	  		featureType: "poi",
+	  		elementType: "labels",
+	 		stylers: [
+	  			{visibility: "off"}
+	  		]
+		}
+	]
+	});
+  var infoWindow = new google.maps.InfoWindow
+
+  var restaurants = [
+    <% @restaurants.each do |restaurant| %>
+      {
+        coords:{lat:<%= restaurant.latitude %>,lng:<%= restaurant.longitude %>},
+        content: '<h3><%= restaurant.cname %></h3> <h6><%= restaurant.address %></h6>'
+      },
+    <% end %>
+  ]
+  
+  for(var i = 0; i < restaurants.length; i++){
+    addMarker(restaurants[i]);
+  }
+  function addMarker(props){
+    var marker = new google.maps.Marker({
+    position: props.coords,
+    map: map
+
+    });
+    var infoWindow = new google.maps.InfoWindow({
+      content: props.content 
+    });
+    marker.addListener('click', function(){
+      infoWindow.open(map, marker);
+    });  
+  }
+  	// var geocoder = new google.maps.Geocoder();
+  	// document.getElementById('address-submit-button').addEventListener('click', function() {
+   //        geocodeAddress(geocoder, map);
+   //    });
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          // var icon = {
+          //   icon: ('https://www.bing.com/images/search?view=detailV2&ccid=OmayI11Q&id=B32C0D844D38BA289F99F05026250FC5853FF266&thid=OIP.OmayI11QNrT9debyYsOaXAEsEs&mediaurl=https%3a%2f%2fcdn0.iconfinder.com%2fdata%2ficons%2fmap-3%2f1024%2flocation-512.png&exph=512&expw=512&q=current+location+icon+blue&simid=608054409042332181&selectedIndex=3&ajaxhist=0')
+          // };
+
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('Current Location');
+          infoWindow.open(map);
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+};
+
+
+
+// function geocodeAddress(geocoder, resultsMap) {
+//     var address = document.querySelector('.address-submit').value;
+//     geocoder.geocode({'address': address}, function(results, status) {
+//       if (status === 'OK') {
+//         resultsMap.setCenter(results[0].geometry.location);
+//         var marker = new google.maps.Marker({
+//           map: resultsMap,
+//           position: results[0].geometry.location
+//         });
+//       } else {
+//         alert('Geocode was not successful for the following reason: ' + status);
+//       }
+//     });
+// }
+
+$(function () {
+        initialize();
+    });
+
+var placeSearch, autocomplete;
+var componentForm = {
+	street_number: 'short_name',
+	route: 'long_name',
+	locality: 'long_name',
+	administrative_area_level_1: 'short_name',
+	country: 'long_name',
+	postal_code: 'short_name'
+};
+
+function initialize() {
+    autocomplete = new google.maps.places.Autocomplete(
+        (document.getElementById('autocomplete')),
+        {types: ['geocode']});
+    autocomplete.addListener('place_changed', fillInAddress);
+    console.log(autocomplete);
+    console.log();
+}
+
+function fillInAddress() {
+    var place = autocomplete.getPlace();
+
+    for (var component in componentForm) {
+      document.getElementById(component).value = '';
+      document.getElementById(component).disabled = false;
+    }
+
+    for (var i = 0; i < place.address_components.length; i++) {
+      var addressType = place.address_components[i].types[0];
+      if (componentForm[addressType]) {
+        var val = place.address_components[i][componentForm[addressType]];
+        document.getElementById(addressType).value = val;
+      }
+    }
+  }
+
+        // if (navigator.geolocation) {
+        //   navigator.geolocation.getCurrentPosition(function(position) {
+        //     var pos = {
+        //       lat: position.coords.latitude,
+        //       lng: position.coords.longitude
+        //     };
+
+        //     infoWindow.setPosition(pos);
+        //     infoWindow.setContent('Location found.');
+        //     infoWindow.open(map);
+        //     map.setCenter(pos);
+        //   }, function() {
+        //     handleLocationError(true, infoWindow, map.getCenter());
+        //   });
+        // } else {
+        //   // Browser doesn't support Geolocation
+        //   handleLocationError(false, infoWindow, map.getCenter());
+        // }
+      
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+
+setTimeout(initMap, 10);
+</script>
+
+
+
+
+<!-- function geocodeAddress(geocoder, resultsMap) {
+    var address = document.querySelector('.address-submit').value;
+    geocoder.geocode({'address': address}, function(results, status) {
+      let temp1 = results[0].geometry.location.lat();
+      let temp2 =results[0].geometry.location.lng();
+      if (status === 'OK') {
+        resultsMap.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: [temp1, temp2]
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+} -->
+
+
