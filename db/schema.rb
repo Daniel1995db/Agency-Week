@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20171109165558) do
     t.integer "time_frame"
     t.string "description"
     t.integer "restaurant_id"
+    t.datetime "ended_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_discounts_on_restaurant_id"

@@ -1,10 +1,26 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$gray: #72777C;
+$teal: #1BDD8F;
+$darker-green: #33825D;
+$blue: #267FA2;
+$white: #FFFFFF;
+
+$big-font: "roboto";
+$medium-font: "sarala";
+$small-font: "source sans pro";
+
+// Reference it like this
+// .brian-regan {
+//  font-family: $big-font;
+// }
+
 
 #map{
-	height: 700px;
-	width: 500px
+	height: 400px;
+	width: 95%;
+	display: inline-block;
 }
 #address-panel{
 	margin-bottom: 40px;
@@ -16,4 +32,30 @@
 
 .fav-btn i:hover {
 	font-size: 35px;
+}
+
+.live-discount-restaurants-col{
+	display: inline-block;
+	margin-left: 5%;
+	height: 600px;
+	width: 43%;
+	overflow: auto;
+	border: 1px solid #666;
+}
+.live-discount-restaurants-list{
+	padding-top: 2%;
+	text-align: center;
+	.restaurant-name-in-list{
+		font-family: $medium-font;
+	}
+	.restaurant-address-in-list, .discount-description-in-list{
+		font-family: $small-font;
+	}
+}
+.restaurants-list-heading{
+	text-align: center;
+	font-family: $big-font
+}
+.live-restaurants-container{
+	text-align: center;
 }

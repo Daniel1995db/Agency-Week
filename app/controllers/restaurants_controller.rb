@@ -81,6 +81,8 @@ class RestaurantsController < ApplicationController
 
   def live_restaurants
     @restaurants = Restaurant.all
+    @discounts = Discount.live
+    
   end
 
   def choosing_option

@@ -4,13 +4,13 @@
 </div>
  -->
 
-
-<!-- <div id="locationField" >
+<!-- 
+<div id="locationField" >
     <input id="autocomplete" class="address-submit" placeholder="Enter your address"
              value="New York, NY" type="text" style="width: 500px;"></input>
     <input id="address-submit-button" type="button" value="Geocode">
-</div>
- -->
+</div> -->
+
    <!--  <table id="<a href=""></a>ddress">
       <tr>
         <td class="label">Street address</td>
@@ -38,20 +38,26 @@
               id="country" disabled="true"></input></td>
       </tr>
     </table> -->
-
-<div id="map"></div>
+<div class="live-restaurants-container">
+  <div id="map"></div>
+  <div class="live-discount-restaurants-col">
+    <h1 class="restaurants-list-heading">Restaurants currently discounting</h1>
+    <% @discounts.each do |discount| %>
+      <div class="live-discount-restaurants-list">
+        <h3 class="restaurant-name-in-list"><%= discount.restaurant.cname %></h3>
+        <h5 class="restaurant-address-in-list"><%= discount.restaurant.address %></h5>
+        <h5 class="discount-description-in-list"><%= discount.description %></h5>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzDUyA7JETU9aaofrnQdoTqXCLEBrSywA&libraries=places" type="text/javascript">
 </script>
 <script type="text/javascript">
 
-
-// for (i = 0, len = Restaurant.length, i < len; i++) {
-//   console.log("%>")
-// }
-
-
+var infoWindow, map;
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 	  center: {lat: 40.714623, lng: -74.006605},
@@ -66,35 +72,76 @@ function initMap() {
 		}
 	]
 	});
-	// var marker = new google.maps.Marker({
-	// 	position: {<%= Restaurant.first.address %>}
-	// 	map: map
-	// });
-	// var infoWindow = new google.maps.InfoWindow({
-	// 	content: {'<h3><%= Restaurant.first.cname %></h3> <h6><%= Restaurant.first.address %></h6>'}
-	// });
-	marker.addListener('click', function(){
-		infoWindow.open(map, marker);
-	});
-	var geocoder = new google.maps.Geocoder();
-	document.getElementById('address-submit-button').addEventListener('click', function() {
-        geocodeAddress(geocoder, map);
+  var infoWindow = new google.maps.InfoWindow
+
+  var restaurants = [
+    <% @discounts.each do |discount| %>
+      {
+        coords:{lat:<%= discount.restaurant.latitude %>,lng:<%= discount.restaurant.longitude %>},
+        content: '<h3><%= discount.restaurant.cname %></h3> <h6><%= discount.restaurant.address %></h6>'
+      },
+    <% end %>
+  ]
+  
+  for(var i = 0; i < restaurants.length; i++){
+    addMarker(restaurants[i]);
+  }
+  function addMarker(props){
+    var marker = new google.maps.Marker({
+    position: props.coords,
+    map: map
+
     });
-};
-function geocodeAddress(geocoder, resultsMap) {
-    var address = document.querySelector('.address-submit').value;
-    geocoder.geocode({'address': address}, function(results, status) {
-      if (status === 'OK') {
-        resultsMap.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-          map: resultsMap,
-          position: results[0].geometry.location
+    var infoWindow = new google.maps.InfoWindow({
+      content: props.content 
+    });
+    marker.addListener('click', function(){
+      infoWindow.open(map, marker);
+    });  
+  }
+  	// var geocoder = new google.maps.Geocoder();
+  	// document.getElementById('address-submit-button').addEventListener('click', function() {
+   //        geocodeAddress(geocoder, map);
+   //    });
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          // var icon = {
+          //   icon: ('https://www.bing.com/images/search?view=detailV2&ccid=OmayI11Q&id=B32C0D844D38BA289F99F05026250FC5853FF266&thid=OIP.OmayI11QNrT9debyYsOaXAEsEs&mediaurl=https%3a%2f%2fcdn0.iconfinder.com%2fdata%2ficons%2fmap-3%2f1024%2flocation-512.png&exph=512&expw=512&q=current+location+icon+blue&simid=608054409042332181&selectedIndex=3&ajaxhist=0')
+          // };
+
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('Current Location');
+          infoWindow.open(map);
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
         });
       } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
       }
-    });
-}
+};
+
+
+
+// function geocodeAddress(geocoder, resultsMap) {
+//     var address = document.querySelector('.address-submit').value;
+//     geocoder.geocode({'address': address}, function(results, status) {
+//       if (status === 'OK') {
+//         resultsMap.setCenter(results[0].geometry.location);
+//         var marker = new google.maps.Marker({
+//           map: resultsMap,
+//           position: results[0].geometry.location
+//         });
+//       } else {
+//         alert('Geocode was not successful for the following reason: ' + status);
+//       }
+//     });
+// }
 
 $(function () {
         initialize();
@@ -136,24 +183,55 @@ function fillInAddress() {
     }
   }
 
-// function geolocate() {
-//     if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(function(position) {
-//         var geolocation = {
-//           lat: position.coords.latitude,
-//           lng: position.coords.longitude
-//         };
-//         var circle = new google.maps.Circle({
-//           center: geolocation,
-//           radius: position.coords.accuracy
-//         });
-//         autocomplete.setBounds(circle.getBounds());
-//       });
-//     }
-// }
+        // if (navigator.geolocation) {
+        //   navigator.geolocation.getCurrentPosition(function(position) {
+        //     var pos = {
+        //       lat: position.coords.latitude,
+        //       lng: position.coords.longitude
+        //     };
+
+        //     infoWindow.setPosition(pos);
+        //     infoWindow.setContent('Location found.');
+        //     infoWindow.open(map);
+        //     map.setCenter(pos);
+        //   }, function() {
+        //     handleLocationError(true, infoWindow, map.getCenter());
+        //   });
+        // } else {
+        //   // Browser doesn't support Geolocation
+        //   handleLocationError(false, infoWindow, map.getCenter());
+        // }
+      
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
 
 setTimeout(initMap, 10);
 </script>
 
+
+
+
+<!-- function geocodeAddress(geocoder, resultsMap) {
+    var address = document.querySelector('.address-submit').value;
+    geocoder.geocode({'address': address}, function(results, status) {
+      let temp1 = results[0].geometry.location.lat();
+      let temp2 =results[0].geometry.location.lng();
+      if (status === 'OK') {
+        resultsMap.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: [temp1, temp2]
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+} -->
 
 
