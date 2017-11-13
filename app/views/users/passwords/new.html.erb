@@ -1,11 +1,11 @@
-<center><h2>Forgot your password?</h2></center>
+<center><h2 class="whatever">Forgot your password?</h2></center>
 
 <div id="forgetpwform">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
 
-  <center><h3>Enter your Email</h3><br />
+  <center><h3 class="whatever2">Enter your Email</h3><br />
     <%= f.email_field :email, autofocus: true %> </center>
 
   <div class="actions">
