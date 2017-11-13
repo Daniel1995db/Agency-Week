@@ -1,0 +1,121 @@
+$gray: #72777C;
+$teal: #1BDD8F;
+$darker-green: #33825D;
+$blue: #267FA2;
+$white: #FFFFFF;
+
+$big-font: "roboto";
+$medium-font: "sarala";
+$small-font: "source sans pro";
+
+#address-signup-input {
+	width: 500px;
+}
+
+.address-submit {
+	width: 500px;
+}
+
+.restaurantSignUpContain {
+	width: 100%;
+	text-align: center;
+	
+	a {
+		font-size: 14px;
+	}
+
+	label, .restaurantNewMisc, .field, a {
+		font-family: $medium-font;
+	}
+
+	h1, h2 {
+		font-family: $big-font;
+		color: $blue;
+		padding-bottom: 1%;
+		font-size: 5vw;
+	}
+
+	 .field input,
+	 .field2 input {
+		width: 200px;
+		height: 30px;
+		font-family: $small-font;
+		font-size: 15px;
+		border-color: $blue;
+		border-style: solid;
+		border-radius: 4px;
+		border-width: 1px;
+	}
+}
+
+.tableAddressContain {
+	width: 100%;
+	text-align: center;
+}
+
+.restaurantSignUpForm {
+
+  	form {
+  		text-align: center;
+  	}
+}
+
+.field {
+	text-align: center;
+
+	p {
+		text-align: center;
+		padding: 0;
+		margin: 0;
+
+		label {
+			padding-bottom: 0;
+		}
+
+		input {
+			padding-top: 0;
+		}
+	}
+}
+
+.restaurantSignUpFormContain {
+	text-align: center;
+}
+
+.restSignUp input{
+	padding: 12px 22px 12px 22px;
+	font-family: $small-font;
+	background-color: $blue;
+	border-color: $blue;
+	color: white;
+	border-style: solid;
+	border-radius: 4px;
+	border-width: 1px;
+	font-size: 2vw;
+
+}
+
+.field3 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.field2 {
+	padding-bottom: 5px;
+}
+
+.restloginlinks {
+	padding-top: 10px;
+}
+
+@media (max-width: 850px) {
+	.restaurantSignUpContain h1,
+	.restaurantSignUpContain h2 {
+		font-size: 9vw;
+		padding-bottom: 5%;
+	}
+
+	.restSignUp input {
+		font-size: 4vw;
+	}
+}

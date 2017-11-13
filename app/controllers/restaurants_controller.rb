@@ -7,6 +7,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     @restaurant = current_restaurant
+    @class = "restaurant"
   end
 
   # GET /restaurants/1
@@ -16,6 +17,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/new
   def new
+    @class = "restaurantNew"
     @restaurant = Restaurant.new
   end
 
