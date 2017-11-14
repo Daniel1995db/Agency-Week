@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   end
 
   def admin_pick_ups
-    
+
     @pick_ups = PickUp.all
   end
 

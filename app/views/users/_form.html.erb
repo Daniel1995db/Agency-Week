@@ -22,13 +22,11 @@
     <p>Last Name: </p> </br>
     <%= form.text_field :lname, id: :user_lname, class: "text_field", placeholder: "Last Name" %>
   </div>
-</div>
 
-  <center><div class="field">
-    <p>Profile Picture:</p><br/>
-    <%= form.label :photo %><br/>
-    <%=form.file_field :photo, id: :user_photo %>
-  </div></center>
+  <div class="field">
+    <p>Profile Picture: </p><br/>
+    <center><%=form.file_field :photo, id: :user_photo %></center>
+  </div>
 
 
   <div class="actions">
@@ -38,3 +36,4 @@
   <center><%= link_to 'Back to my Profile', @user, class: 'profbutton' %></center>
 <% end %>
 </section>
+</div>
