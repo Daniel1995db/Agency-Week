@@ -45,7 +45,7 @@ $small-font: "source sans pro";
   position: fixed;
   top: 3%;
   right: 3%;
-  z-index: 2;
+  z-index: 3;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -119,7 +119,7 @@ $small-font: "source sans pro";
     background-color: $gray;
     opacity: 0.95;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
@@ -210,4 +210,8 @@ $small-font: "source sans pro";
   top: 0;
 }
 }
-
+#nav-bar-options{
+  li{
+    padding: 4%;
+  }
+}

@@ -26,10 +26,11 @@ class DiscountsController < ApplicationController
   def create
     @discount = Discount.new(discount_params)
     @discount.restaurant = current_restaurant
+    @restaurant = restaurant_path(current_restaurant)
 
     respond_to do |format|
       if @discount.save!
-        format.html { redirect_to @discount, notice: 'Discount was successfully created.' }
+        format.html { redirect_to @restaurant, notice: 'Discount was successfully created.' }
         format.json { render :show, status: :created, location: @discount }
       else
         format.html { render :new }

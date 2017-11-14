@@ -5,7 +5,7 @@ class PickUpsController < ApplicationController
   # GET /pick_ups
   # GET /pick_ups.json
   def index
-    @pick_ups = PickUp.all
+    @pick_ups = PickUp.all.order(id: :desc)
   end
 
   # GET /pick_ups/1

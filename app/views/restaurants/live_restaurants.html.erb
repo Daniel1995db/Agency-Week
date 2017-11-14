@@ -11,9 +11,9 @@
     <h1 class="restaurants-list-heading">Restaurants currently discounting</h1>
     <% @discounts.each do |discount| %>
       <div class="live-discount-restaurants-list">
-        <h3 class="restaurant-name-in-list"><%= discount.restaurant.cname %></h3>
+        <h3 class="restaurant-name-in-list"><%= link_to discount.restaurant.cname, discount.restaurant %></h3>
         <h5 class="restaurant-address-in-list"><%= discount.restaurant.address %></h5>
-        <h5 class="discount-description-in-list"><%= discount.description %></h5>
+        <h5 class="discount-description-in-list">Sale: <%= discount.description %></h5>
       </div>
     <% end %>
   </div>

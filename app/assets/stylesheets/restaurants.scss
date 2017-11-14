@@ -43,10 +43,21 @@ $small-font: "source sans pro";
 	text-align: center;
 	.restaurant-name-in-list{
 		font-family: $medium-font;
+		a{
+		color: white;
+		text-decoration: none;
+		}
+		a:hover{
+			color: $blue;
+		}
 	}
 	.restaurant-address-in-list, .discount-description-in-list{
 		font-family: $small-font;
 	}
+	.discount-description-in-list{
+		font-style: italic;
+	}
+	
 }
 .restaurants-list-heading{
 	text-align: center;
@@ -263,6 +274,7 @@ $small-font: "source sans pro";
 @media(min-width: 310px) and (max-width: 430px) {
 	.all-restaurant-page-title{
 		padding: 3%;
+		margin-top: 5%
 	}
 	.all-restaurant-page-subtitle{
 		margin: 0;
