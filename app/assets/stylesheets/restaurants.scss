@@ -226,7 +226,7 @@ $small-font: "source sans pro";
 	font-family: $big-font;
 	font-size: 430%;
 	text-align: center;
-	margin-top: 4%;
+	margin-top: 10%;
 }
 .all-restaurant-page-subtitle{
 	color: $blue;
@@ -240,6 +240,11 @@ $small-font: "source sans pro";
 	display: none;
 }
 @media(max-width: 800px){
+
+	.all-restaurant-page-title{
+		margin-top: 25%;
+	}
+
 	#map{
 		width: 90%;
 		height: 500px;
@@ -275,10 +280,3 @@ $small-font: "source sans pro";
 		border-color: black;
 	}
 }
-
-
-
-
-
-
-
