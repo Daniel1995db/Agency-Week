@@ -44,7 +44,7 @@
     <h1 class="restaurants-list-heading">All Restaurants</h1>
     <% @restaurants.each do |restaurant| %>
       <div class="live-discount-restaurants-list">
-        <h3 class="restaurant-name-in-list"><%= restaurant.cname %></h3>
+        <h3 class="restaurant-name-in-list"><%= link_to restaurant.cname, restaurant %></h3>
         <h5 class="restaurant-address-in-list"><%= restaurant.address %></h5>
       </div>
     <% end %>

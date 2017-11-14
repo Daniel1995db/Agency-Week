@@ -19,6 +19,7 @@ $small-font: "source sans pro";
 .restaurantSignUpContain {
 	width: 100%;
 	text-align: center;
+	margin-top: 10%;
 	
 	a {
 		font-size: 14px;
@@ -117,5 +118,9 @@ $small-font: "source sans pro";
 
 	.restSignUp input {
 		font-size: 4vw;
+	}
+
+	.restaurantSignUpContain {
+		margin-top: 20%;
 	}
 }
