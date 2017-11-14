@@ -25,7 +25,7 @@ class FavoriteRestaurantsController < ApplicationController
   # POST /favorite_restaurants.json
   def create
     @favorite_restaurant = FavoriteRestaurant.new(favorite_restaurant_params)
-    
+
     respond_to do |format|
       if @favorite_restaurant.save
         format.html { redirect_to @favorite_restaurant, notice: 'Favorite restaurant was successfully created.' }

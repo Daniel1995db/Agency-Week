@@ -1,3 +1,5 @@
+<section id="usereditformcontain">
+
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -11,32 +13,28 @@
     </div>
   <% end %>
 <section id="usereditform">
-  <div id="formcol1"><div class="field">
-    <%= form.label :fname, "First Name" %>
-    <%= form.text_field :fname, id: :user_fname, class: "text_field" %>
+  <div class="field">
+    <p>First Name:</p> </br>
+    <%= form.text_field :fname, id: :user_fname, class: "text_field", placeholder: "First Name" %>
   </div>
 
   <div class="field">
-    <%= form.label :lname, "Last Name" %>
-    <%= form.text_field :lname, id: :user_lname, class: "text_field" %>
+    <p>Last Name: </p> </br>
+    <%= form.text_field :lname, id: :user_lname, class: "text_field", placeholder: "Last Name" %>
   </div>
 </div>
 
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.text_field :photo, id: :user_photo %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status, id: :user_status, class: "text_field" %>
-  </div>
+  <center><div class="field">
+    <p>Profile Picture:</p><br/>
+    <%= form.label :photo %><br/>
+    <%=form.file_field :photo, id: :user_photo %>
+  </div></center>
 
 
   <div class="actions">
     <center><%= form.submit "Submit", class: 'submit_button' %></center>
-
   </div>
+  <br><br>
+  <center><%= link_to 'Back to my Profile', @user, class: 'profbutton' %></center>
 <% end %>
 </section>

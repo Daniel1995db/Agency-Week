@@ -1,3 +1,64 @@
-// Place all the styles related to the favorite_restaurants controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$gray: #72777C;
+$teal: #1BDD8F;
+$darker-green: #33825D;
+$blue: #267FA2;
+$white: #FFFFFF;
+
+$big-font: "roboto";
+$medium-font: "sarala";
+$small-font: "source sans pro";
+
+#favrestaurant {
+  h1 {
+    font-family: $medium-font;
+    text-align: center;
+  }
+  padding-top: 10px;
+  width: 100%;
+  margin: auto;
+  font-family: $small-font;
+  font-size: 2vw;
+  .field {
+    color: $gray;
+  }
+  .actions {
+    .favrbutton {
+      padding: 12px 22px 12px 22px;
+      font-family: $small-font;
+      background-color: $blue;
+      border-color: $blue;
+      color: white;
+      border-style: solid;
+      border-radius: 4px;
+      border-width: 1px;
+      font-size: 2vw;
+      margin: auto;
+
+      }
+}
+}
+
+#favrindex {
+  text-align: center;
+  margin: auto;
+  h1 {
+    color: $blue;
+  }
+  font-family: $medium-font;
+  table, thead, tr, th {
+    text-align: center;
+  }
+  td {
+    font-family: $small-font;
+    padding: 10px;
+    color: $gray;
+    font-size: 2vw;
+  }
+  a {
+    color: $blue;
+    font-size: 1.5vw;
+    &:hover {
+      color: tomato;
+    }
+  }
+}

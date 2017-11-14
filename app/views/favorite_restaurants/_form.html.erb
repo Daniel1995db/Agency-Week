@@ -1,3 +1,6 @@
+
+
+<div id="favrestaurant">
 <%= form_with(model: favorite_restaurant, local: true) do |form| %>
   <% if favorite_restaurant.errors.any? %>
     <div id="error_explanation">
@@ -12,16 +15,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :favorite_restaurant_user_id %>
+
+    <%= form.text_field :user_id, id: :favorite_restaurant_user_id, placeholder: "User" %>
   </div>
 
   <div class="field">
-    <%= form.label :restaurant_id %>
-    <%= form.text_field :restaurant_id, id: :favorite_restaurant_restaurant_id %>
+
+    <%= form.text_field :restaurant_id, id: :favorite_restaurant_restaurant_id, placeholder: "Restaurant" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <center><%= form.submit "Submit", class: 'favrbutton' %></center>
   </div>
 <% end %>
+</div>

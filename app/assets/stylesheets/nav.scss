@@ -15,6 +15,29 @@ $small-font: "source sans pro";
   padding: 0px; 
 }
 
+.allPagesHeader {
+  width: 100%;
+  padding-bottom: 10px;
+  position: fixed;
+  top: 5%;
+  left: 2%;
+  z-index: 2;
+  font-size: 30px;
+
+  i {
+    vertical-align: text-bottom;
+  }
+
+  .plentyHeader {
+    letter-spacing: 25px;
+    padding-bottom: 1%;
+    padding-left: 5px;
+  }
+
+  .allPagesHeaderText {
+    font-size: 14px;
+  }
+}
 
  #nav-icon3 {
   width: 60px;
@@ -132,6 +155,7 @@ $small-font: "source sans pro";
     }
   }
 }
+
 @media (min-width: 800px) {
   .nav-bar-options{
     li{
@@ -148,7 +172,42 @@ $small-font: "source sans pro";
   }
 }
 
+@media (max-width: 570px) {
+
+  .allPagesHeader {
+  font-size: 20px;
+  margin-top: -2%;
+
+  i {
+    vertical-align: text-bottom;
+  }
+
+  .plentyHeader {
+    letter-spacing: 10px;
+  }
+
+  .allPagesHeaderText {
+    font-size: 10px;
+  }
+ }
 
 
+ .restaurantHome {
+  padding-top: 10%;
+ }
 
+ .menuItemEditHeader {
+  padding-top: 5%;
+ }
+
+ .navContain {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  background-color: $gray;
+  position: fixed;
+  top: 0;
+}
+}
 
