@@ -2,12 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @favorite_restaurant.user %>
+  <%= @favorite_restaurant.user.fname %>
 </p>
 
 <p>
   <strong>Restaurant:</strong>
-  <%= @favorite_restaurant.restaurant %>
+  <%= @favorite_restaurant.restaurant.cname %>
 </p>
 
 <%= link_to 'Edit', edit_favorite_restaurant_path(@favorite_restaurant) %> |
