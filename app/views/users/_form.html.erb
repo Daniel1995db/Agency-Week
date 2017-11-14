@@ -1,3 +1,6 @@
+<section id="usereditformcontain">
+
+
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -11,26 +14,18 @@
     </div>
   <% end %>
 <section id="usereditform">
-  <div id="formcol1"><div class="field">
-    <%= form.label :fname, "First Name" %>
-    <%= form.text_field :fname, id: :user_fname, class: "text_field" %>
+  <div class="field">
+    <%= form.text_field :fname, id: :user_fname, class: "text_field", placeholder: "First Name" %>
   </div>
 
   <div class="field">
-    <%= form.label :lname, "Last Name" %>
-    <%= form.text_field :lname, id: :user_lname, class: "text_field" %>
+    <%= form.text_field :lname, id: :user_lname, class: "text_field", placeholder: "Last Name" %>
   </div>
 </div>
 
   <div class="field">
-    <%= form.label :photo %>
+    <%= form.label :photo %><br/>
     <%= form.text_field :photo, id: :user_photo %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status, id: :user_status, class: "text_field" %>
   </div>
 
 

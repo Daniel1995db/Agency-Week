@@ -10,31 +10,40 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 </style>
 
-<center><h2 class="whatever">User Information</h2></center>
-<div id="UserInfo">
 
-<p class='pclass'><%= image_tag(@user.image) if @user.image? %></p>
-<p class='pclass'>  <strong>First Name:</strong>
+
+<center><h2 class="whatever">User Profile</h2></center>
+
+<div id="UserInfo">
+<p><%= image_tag(@user.image) if @user.image? %></p>
+<p>
+  <strong>First Name:</strong>
   <%= @user.fname %>
 </p>
 
-<p class='pclass'>
+<p>
   <strong>Last Name:</strong>
   <%= @user.lname %>
 </p>
 
-<p class='pclass'>
+<p>
   <strong>Status:</strong>
   <%= @user.status %>
 </p>
 
+<div id="editlinkcontainer">
 <div id="editprofilelink">
-<center><%= link_to 'Edit Info', edit_user_path(@user) %></center>
+<center><%= link_to 'Update Profile', edit_user_path(@user) %></center>
+<div id="editsettingslink">
+<center><%= link_to 'Settings', edit_user_registration_path(@user) %></center>
 </div>
 </div>
+</div>
+</div>
+
 <div id="UserFavs">
-<p class='pclass'>
-  <h3 class="whatever2"><center>Favorite Restaurants</center></h3>
+<p>
+  <h3><center>Favorite Restaurants</center></h3>
   <% @user.favorite_restaurants.each do |fr| %>
   	<p class="pclass"><%= fr.restaurant.cname %></p>
   <% end %>

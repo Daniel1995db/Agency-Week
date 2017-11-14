@@ -1,15 +1,13 @@
-<center><h2 class="whatever">Log in</h2></center>
+<div id="signinform"
+<center><h2 class="whatever">User Login</h2></center>
 
-<div id="signinform">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="field1">
+    <%= f.email_field :email, autofocus: true, placeholder: "Email Address" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="field2">
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -24,5 +22,5 @@
   </div>
 <% end %>
 
-<center><%= render "users/shared/links" %></center>
+<div class="userloginlinks"><%= render "users/shared/links" %></div>
 </div>
