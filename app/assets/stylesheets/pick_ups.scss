@@ -1,3 +1,74 @@
 // Place all the styles related to the pick_ups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$gray: #72777C;
+$teal: #1BDD8F;
+$darker-green: #33825D;
+$blue: #267FA2;
+$white: #FFFFFF;
+
+$big-font: "roboto";
+$medium-font: "sarala";
+$small-font: "source sans pro";
+
+// -------------------------------
+
+.pick-up-page-title{
+	font-family: $big-font;
+	font-size: 400%;
+	color: $blue;
+	text-align: center;
+}
+
+.restaurant-name-pick-ups{
+	font-family: $small-font;
+	font-weight: bold;
+	font-size: 200%;
+}
+
+.pick-ups-page-container{
+	width: 85%;
+	margin-right: auto;
+	margin-left: auto;
+}
+.restaurant-name-pick-ups,
+.created-at-time,
+.created-at-date,
+.delete-pick-up,
+.pick-up-address {
+	width: inherit;
+	font-family: $small-font;
+	font-size: 150%;
+}
+.delete-pick-up{
+	margin-top: 0;
+	color: red;
+	margin-bottom: 0;
+	text-align: right;
+	a{
+		color: red;
+		text-decoration: none;
+	}
+	a:visited{
+		color: red;
+	}
+}
+.mark-as-complete{
+	color: red;
+	text-align: right;
+}
+.created-at-time{
+	margin-bottom: 0;
+}
+.pick-up-address{
+	margin-bottom: 3.5%;
+}
+.administration-pick-up, .mark-as-complete{
+	width: 450px;
+	margin: 2% 0;
+	display: inline-block;
+}
+.headings-pick-up{
+	width: 910px;
+	margin: auto;
+}

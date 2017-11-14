@@ -29,9 +29,12 @@
 
     <% if restaurant_signed_in? %>
       <%= render partial: 'nav_bars/restaurantNav' %>
+    <% elsif user_signed_in? && current_user.administrator? %>
+      <%= render partial: 'nav_bars/adminNav' %>
     <% elsif user_signed_in? %>
       <%= render partial: 'nav_bars/usersNav' %>
     <% end %>
+  
 
     <%= yield %>
 
