@@ -13,12 +13,16 @@
 </style>
 
 
+<div id="UserInfo">
+<center><h2 class="whatever"><%= @user.fname %>'s Profile</h2></center>
+
+
 
 <center class="userProfileName"><h2 class="whatever"><%= @user.fname %>'s Profile</h2></center>
 
-<div id="UserInfo">
+
 <center><p><%= image_tag(@user.image.url) if @user.image? %></p>
-  
+
 </center>
   <p>
   <strong>First Name:</strong>
@@ -45,7 +49,14 @@
 </div>
 </div>
 
+<br>
+<br>
+<br>
+<br>
+
+
 <% if @user.status == "customer" %>
+
 <div id="UserFavs">
 <p>
   <h3><center>Favorite Restaurants</center></h3>
