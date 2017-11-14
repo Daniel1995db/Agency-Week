@@ -25,7 +25,7 @@ class PickUpsController < ApplicationController
   # POST /pick_ups
   # POST /pick_ups.json
   def create
-    @pick_up = PickUp.new(pick_up_params)
+    @pick_up = PickUp.new( restaurant: current_restaurant )
 
     respond_to do |format|
       if @pick_up.save

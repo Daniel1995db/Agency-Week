@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = current_user
   end
 
   # GET /users/new
@@ -60,6 +61,11 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def admin_pick_ups
+    
+    @pick_ups = PickUp.all
   end
 
   private

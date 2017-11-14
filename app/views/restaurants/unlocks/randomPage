@@ -1,10 +1,43 @@
-<h1 class="all-restaurant-page-title">Looking for the cheap, perfect meal near you?</h1>
-<h5 class="all-restaurant-page-subtitle">Below are a list of restaurants that are currently selling their menu at a discounted price. Hurry up snag some food before they're all gone.</h5>
+<!-- <div id="address-panel">
+    <input id="address-submit" type="textbox" value="New York, NY">
+    
+</div>
+ -->
 
-<p class="mobile-rules">Pinch or double tap to zoom</p>
-<p class="mobile-rules">Hold and slide to move around map</p>
-<p class="mobile-rules">Tap on icon for more information</p>
+<!-- 
+<div id="locationField" >
+    <input id="autocomplete" class="address-submit" placeholder="Enter your address"
+             value="New York, NY" type="text" style="width: 500px;"></input>
+    <input id="address-submit-button" type="button" value="Geocode">
+</div> -->
 
+   <!--  <table id="<a href=""></a>ddress">
+      <tr>
+        <td class="label">Street address</td>
+        <td class="slimField"><input class="field" id="street_number"
+              disabled="true"></input></td>
+        <td class="wideField" colspan="2"><input class="field" id="route"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">City</td>
+        <td class="wideField" colspan="3"><input class="field" id="locality"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">State</td>
+        <td class="slimField"><input class="field"
+              id="administrative_area_level_1" disabled="true"></input></td>
+        <td class="label">Zip code</td>
+        <td class="wideField"><input class="field" id="postal_code"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">Country</td>
+        <td class="wideField" colspan="3"><input class="field"
+              id="country" disabled="true"></input></td>
+      </tr>
+    </table> -->
 <div class="live-restaurants-container">
   <div id="map"></div>
   <div class="live-discount-restaurants-col">

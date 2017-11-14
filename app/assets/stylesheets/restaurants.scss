@@ -29,6 +29,8 @@ $small-font: "source sans pro";
 
 
 .live-discount-restaurants-col{
+	background-color: $gray;
+	color: white;
 	display: inline-block;
 	margin-left: 5%;
 	height: 600px;
@@ -48,10 +50,12 @@ $small-font: "source sans pro";
 }
 .restaurants-list-heading{
 	text-align: center;
-	font-family: $big-font
+	font-family: $big-font;
+	border-bottom: solid;
 }
 .live-restaurants-container{
 	text-align: center;
+	margin-top: 3%;
 }
 
 
@@ -213,4 +217,67 @@ $small-font: "source sans pro";
 		transition: .3s ease;
 	}
 }
+
+
+
+.all-restaurant-page-title{
+	color: $blue;
+	font-family: $big-font;
+	font-size: 430%;
+	text-align: center;
+	margin-top: 4%;
+}
+.all-restaurant-page-subtitle{
+	color: $blue;
+	font-family: $medium-font;
+	text-align: center;
+	font-size: 150%;
+	width: 90%;
+	margin: 1% auto;
+}
+.mobile-rules{
+	display: none;
+}
+@media(max-width: 800px){
+	#map{
+		width: 90%;
+		height: 500px;
+		display: block;
+		margin: auto;
+	}
+	.live-discount-restaurants-col{
+		width: 90%;
+		background-color: white;
+		color: black;
+		border: none;
+		margin: 4% auto;
+		height: inherit;
+	}
+	.mobile-rules{
+		display: block;
+		text-align: right;
+		margin: 3% 3% 3% auto;
+	}
+}
+@media(min-width: 310px) and (max-width: 430px) {
+	.all-restaurant-page-title{
+		padding: 3%;
+	}
+	.all-restaurant-page-subtitle{
+		margin: 0;
+		width: 100%;
+		padding: 2%;
+		padding-right: 7%;
+		text-align: left;
+		border-top: solid;
+		border-bottom: solid;
+		border-color: black;
+	}
+}
+
+
+
+
+
+
 
