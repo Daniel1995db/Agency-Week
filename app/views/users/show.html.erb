@@ -12,11 +12,13 @@
 
 
 
-<center><h2 class="whatever">User Profile</h2></center>
+<center><h2 class="whatever"><%= @user.fname %>'s Profile</h2></center>
 
 <div id="UserInfo">
-<p><%= image_tag(@user.image) if @user.image? %></p>
-<p>
+<center><p><%= image_tag(@user.image.url) if @user.image? %></p>
+  
+</center>
+  <p>
   <strong>First Name:</strong>
   <%= @user.fname %>
 </p>
@@ -33,7 +35,7 @@
 
 <div id="editlinkcontainer">
 <div id="editprofilelink">
-<center><%= link_to 'Update Profile', edit_user_path(@user) %></center>
+<center><%= link_to 'Edit Profile', edit_user_path(@user) %></center>
 <div id="editsettingslink">
 <center><%= link_to 'Settings', edit_user_registration_path(@user) %></center>
 </div>

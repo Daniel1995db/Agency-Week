@@ -48,6 +48,20 @@ a.sharedlinks {
   color: $teal;
 }
 
+.users_all {
+  font-family: $small-font;
+  font-size: 2vw;
+  padding: 5px;
+  th {
+    padding-right: 10px;
+    font-family: $medium-font;
+  }
+  th {
+    font-family: $small-font;
+    padding: 10px;
+    margin: auto;
+  }
+}
 #forgetpwform {
   width: 100%;
   text-align: center;
@@ -83,6 +97,7 @@ a.sharedlinks {
     font-size: 1.5vw;
     padding: 10px 15px 10px 15px;
     margin: auto;
+    display: inline-block;
 
     &:hover {
       background-color: $blue;
@@ -156,22 +171,27 @@ a.sharedlinks {
 }
 
 #UserInfo  {
-  border-style: solid;
-  border-color: $blue;
-  border-width: 3px;
-  border-radius: 2px;
-  width: 40%;
+  width: 30%;
+  text-align: center;
   margin-left: 85px;
   margin-bottom: 10px;
   float: left;
   p {
-    font-size: 20px;
-    margin-left: 20px;
+    font-size: 2vw;
     padding-bottom: 10px;
     color: $gray;
     font-family: $medium-font;
-  }
 
+    img {
+      width: 200px;
+      height: 200px;
+      margin-top: 2%;
+      border-radius: 50%;
+      border-style: solid;
+      border-color: $teal;
+      border-width: 6px;
+  }
+}
   #editlinkcontainer {
     position: relative;
   }
@@ -203,14 +223,14 @@ a.sharedlinks {
  }
 
 #UserFavs {
-  width: 40%;
+  width: 55%;
   float: right;
   border-style: solid;
   border-color: $blue;
   border-width: 3px;
   border-radius: 2px;
   margin-right: 85px;
-  height: 220px;
+  height: 450px;
   overflow: auto;
   h3 {
     font-family: $medium-font;
@@ -225,10 +245,38 @@ a.sharedlinks {
   margin: auto;
   font-family: $small-font;
   font-size: 2vw;
+  p {
+    color: #000;
+    font-family: $small-font;
+    margin: 0;
+    font-size: 2vw;
+  }
+  input#user_photo {
+    margin: auto;
+    width: 20%;
+  }
   input {
     color: $gray;
   }
   input.submit_button {
+    color: $white;
+  }
+}
+
+.profbutton {
+  color: $white;
+  font-family: $small-font;
+  font-size: 2vw;
+  border-style: solid;
+  border-color: $teal;
+  border-radius: 4px;
+  padding: 5px 5px 5px 5px;
+  background-color: $teal;
+  margin: auto;
+  &:hover {
+    background-color: $blue;
+    text-decoration: none;
+    border-color: $blue;
     color: $white;
   }
 }
@@ -289,11 +337,11 @@ i {
   font-size: 12px;
   color: $teal;
 }
-
+.socialmedia {
 img {
   width: 40px;
 }
-
+}
 
 @media only screen
 and (min-device-width : 1px)
@@ -314,11 +362,20 @@ and (max-device-width : 850px) {
   #UserInfo {
     margin: 0;
     width: 100%;
+    text-align: center;
+    p {
+      font-size: 7.5vw;
+    }
+    img {
+      width: 50%;
+      height: 50%;
+    }
   }
 
   #UserFavs {
     width: 100%;
     margin: 0;
+    border: none;
   }
 
   form {
@@ -357,6 +414,10 @@ and (max-device-width : 850px) {
     text-align: center;
     font-family: $small-font;
     color: $blue;
+  }
+
+  .socialmedia {
+    position: relative;
   }
 
 }
