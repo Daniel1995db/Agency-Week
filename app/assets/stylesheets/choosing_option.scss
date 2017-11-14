@@ -8,3 +8,67 @@ $big-font: "roboto";
 $medium-font: "sarala";
 $small-font: "source sans pro";
 
+.choosing-option-title{
+	font-family: $big-font;
+	text-align: center;
+	width: 90%;
+	margin: auto;
+	padding: 3%;
+	font-size: 300%;
+}
+.choosing-option-subtitle-1, .choosing-option-subtitle-2{
+	font-family: $medium-font;
+	font-size: 200%;
+	padding-top: 3%;
+	width: 90%;
+	display: inline-block;
+
+
+}
+.modal-body-discount-form{
+	width: 30%;
+}
+.button-request-pick-up{
+	width: inherit;
+}
+// #modal_for_requesting_pick_up{
+// 	display: inherit;
+// 	width: 30%;
+// 	margin: 0px;
+// }
+.button-request-pick-up{
+	width: 45%;
+	margin: auto;
+	margin-top: 8%;
+	input{
+		font-size: 200%;
+		padding: 6% 0 6% 0;
+		width: 100%;
+	}
+}
+.col-mid-6{
+	text-align: center;
+	.choosing-option-subtitle-1, .choosing-option-subtitle-2{
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+.modal-body-discount-form{
+	width: inherit;
+	color: black;
+	text-align: center;
+	margin: auto;
+	p{
+		color: black;
+	}
+	select{
+		color: black;
+	}
+	label{
+		color: black;
+	}
+}
+#border-option{
+	border-right: solid;
+}
+

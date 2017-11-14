@@ -62,7 +62,7 @@ $small-font: "source sans pro";
   position: absolute;
   height: 9px;
   width: 100%;
-  background: $teal;
+  background: $blue;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -136,7 +136,7 @@ $small-font: "source sans pro";
       opacity: 1;
     }
     li a:hover{
-      color: $teal;
+      color: $blue;
       opacity: 1;
     }
     li a {
@@ -191,6 +191,7 @@ $small-font: "source sans pro";
   }
  }
 
+
  .restaurantHome {
   padding-top: 10%;
  }
@@ -209,3 +210,4 @@ $small-font: "source sans pro";
   top: 0;
 }
 }
+
