@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="allPagesHeader"><div class="plentyHeader"><i class="fa fa-globe" aria-hidden="true"></i>PLENTY</div>
+    <span class="allPagesHeaderText"><em>save food, save money and save the planet.</em></span>
+  </div>
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Sarala');
@@ -10,11 +12,14 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 </style>
 
+
 <div id="UserInfo">
-<br>
-<br>
-<br>
 <center><h2 class="whatever"><%= @user.fname %>'s Profile</h2></center>
+
+
+
+<center class="userProfileName"><h2 class="whatever"><%= @user.fname %>'s Profile</h2></center>
+
 
 <center><p><%= image_tag(@user.image.url) if @user.image? %></p>
 
@@ -49,6 +54,9 @@
 <br>
 <br>
 
+
+<% if @user.status == "customer" %>
+
 <div id="UserFavs">
 <p>
   <h3><center>Favorite Restaurants</center></h3>
@@ -57,6 +65,7 @@
   <% end %>
 </p>
 </div>
+<% end %>
 <br>
 
 <div class="socialmedia">

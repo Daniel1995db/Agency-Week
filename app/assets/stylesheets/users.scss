@@ -117,6 +117,7 @@ a.sharedlinks {
 
 
 #signinform {
+  padding-top: 10%;
   width: 100%;
   text-align: center;
   margin: auto;
@@ -155,9 +156,11 @@ a.sharedlinks {
 .userloginlinks a{
   padding: 1%;
   color: $darker-green;
+  line-height: 30px;
 }
 
 #usersignup {
+  padding-top: 5%;
   width: 100%;
   margin: auto;
   font-family: $small-font;
@@ -488,5 +491,29 @@ and (max-device-width : 850px) {
   .socialmedia {
     position: relative;
   }
+
+}
+
+
+.userProfileName {
+  margin-top: 8%;
+}
+
+@media (max-width: 550px) {
+  #signinform {
+  padding-top: 20%;
+}
+
+.userloginlinks a {
+  line-height: 5px;
+}
+
+#usersignup {
+  padding-top: 25%;
+}
+
+.userProfileName {
+  margin-top: 30%;
+}
 
 }

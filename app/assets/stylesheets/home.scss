@@ -12,6 +12,12 @@ $big-font: "roboto";
 $medium-font: "sarala";
 $small-font: "source sans pro";
 
+.notice {
+  text-align: center;
+  color: $blue;
+  margin-top: 2%;
+}
+
 .homeImage {
 	margin-top: 30px;
 	position: relative;
@@ -44,7 +50,7 @@ $small-font: "source sans pro";
 
 .home {
 	position: relative;
-	margin: 7% 0 0 0;
+	margin: 0;
 	padding: 0;
 
 	li {
@@ -277,10 +283,6 @@ $small-font: "source sans pro";
 	.homeImage {
 		min-height: 300px;
 	}
-
-	.home {
-		margin-top: 20%;
-	}
 }
 
 @media (max-width: 550px) {
@@ -304,7 +306,7 @@ $small-font: "source sans pro";
 	}
 
 	.homeDiagramContain, {
-		padding: 0% 10% 10% 10%;
+		padding: 0% 10% 2% 10%;
 	}
 
 	.homeTotalContain {
@@ -348,8 +350,16 @@ $small-font: "source sans pro";
 		margin-bottom: 5%;
 
 		button {
-			width: 200px;
+			width: 220px;
 			margin-bottom: 2px;
 		}
+	}
+
+	.homeDiagramContain .homeDiagram {
+		width: 175px;
+	}
+
+	.imageUpload {
+		padding-left: 40%;
 	}
 }
