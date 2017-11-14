@@ -1,4 +1,8 @@
+<div class="allPagesHeader"><div class="plentyHeader"><i class="fa fa-globe" aria-hidden="true"></i>PLENTY</div>
+		<span class="allPagesHeaderText"><em>save food, save money and save the planet.</em></span>
+	</div>
 <div class="restaurants-nav-bar">
+
 	<div id="nav-icon3">
 	  <span></span>
 	  <span></span>
@@ -7,13 +11,9 @@
 	</div>
 	<div class="nav-bar-options">
 		<% if restaurant_signed_in? %>
-			<li><%= link_to 'Company Page', restaurant_path %></li>
+			<li><%= link_to 'Company Page', restaurant_path(current_restaurant) %></li>
 			<li><%= link_to 'Launch', restaurants_option_path %></li>
 			<li><%= link_to('Logout', destroy_restaurant_session_path, method: :delete) %></li>
 		<% end %>
 	</div>
 </div>
-
-
-
-
