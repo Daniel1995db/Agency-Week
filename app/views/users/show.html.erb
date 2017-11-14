@@ -10,13 +10,14 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 </style>
 
-
-
+<div id="UserInfo">
+<br>
+<br>
+<br>
 <center><h2 class="whatever"><%= @user.fname %>'s Profile</h2></center>
 
-<div id="UserInfo">
 <center><p><%= image_tag(@user.image.url) if @user.image? %></p>
-  
+
 </center>
   <p>
   <strong>First Name:</strong>
@@ -42,6 +43,11 @@
 </div>
 </div>
 </div>
+
+<br>
+<br>
+<br>
+<br>
 
 <div id="UserFavs">
 <p>
