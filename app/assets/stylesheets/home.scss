@@ -27,11 +27,11 @@ $small-font: "source sans pro";
 	min-height: 400px;
 	background: 
     linear-gradient(
-      rgba(255, 255, 255, 0.6), 
-      rgba(255, 255, 255, 0.6)
+      rgba(255, 255, 255, 0.4), 
+      rgba(255, 255, 255, 0.4)
     ),
-    url("http://www.linnksprop.com/wp-content/uploads/EasyRotatorStorage/user-content/erc_31_1421226343/content/assets/banner%20NYC2(2).jpg");
-	background-size: 100% 100%;
+    url("https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb");
+	background-size: cover;
 	background-repeat: no-repeat;
 
 	.homeText {
@@ -221,6 +221,7 @@ $small-font: "source sans pro";
 		i {
 			font-size: 35px;
 			padding-bottom: 5%; 
+			color: $blue;
 		}
 
 		width: 150px;
@@ -268,6 +269,7 @@ $small-font: "source sans pro";
   	width: 20%;
   	margin: 0 auto;
   	text-align: center;
+  	padding-top: 10px;
   }
 
   .homeFooter {
